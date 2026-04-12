@@ -21,6 +21,7 @@ def test_create_data_table_from_records_returns_robot_adapter(library, records):
     datatable = library.create_data_table_from_records(records)
     assert isinstance(datatable, RobotDataTable)
     assert datatable.headers == ["name", "age"]
+    assert len(datatable) == 2
 
 
 def test_get_data_table_row_returns_row_adapter_with_dual_access(library, records):
@@ -31,6 +32,8 @@ def test_get_data_table_row_returns_row_adapter_with_dual_access(library, record
     assert row.name == "Alice"
     assert row["age"] == 30
     assert row.columns == ["name", "age"]
+    assert list(row.keys()) == ["name", "age"]
+    assert row.values() == ["Alice", 30]
     assert row.to_dict() == {"name": "Alice", "age": 30}
 
 
@@ -43,6 +46,13 @@ def test_get_data_table_rows_returns_adapters(library, records):
     assert rows[1].name == "Bob"
 
 
+def test_robot_table_adapter_supports_iteration_and_to_dict(library, records):
+    datatable = library.create_data_table_from_records(records)
+
+    assert [row.name for row in datatable] == ["Alice", "Bob"]
+    assert datatable.to_dict() == records
+
+
 def test_set_data_table_value_updates_underlying_table(library, records):
     datatable = library.create_data_table_from_records(records)
 
@@ -53,6 +63,11 @@ def test_set_data_table_value_updates_underlying_table(library, records):
     second_row = library.get_data_table_row(updated_table, 1)
     assert row.country == "MX"
     assert second_row.country is None
+
+
+def test_get_data_table_headers_accepts_native_datatable(library, records):
+    native_datatable = DataTableCreator.from_records(records)
+    assert library.get_data_table_headers(native_datatable) == ["name", "age"]
 
 
 def test_robot_wrapper_accepts_native_datatable(library, records):
