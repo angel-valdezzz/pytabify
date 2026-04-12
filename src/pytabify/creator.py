@@ -1,12 +1,10 @@
-import os
 from typing import Any
-from pytabify.core.datatable import DataTable
-from pytabify.core.dt_row import DTRow
-from pytabify.core.dt_field import DTField
-from pytabify.io.file_formats import FileFormats
-from pytabify.utils.observer import FieldChangeObserver
-from pytabify.utils.validation import validate_data
-from pytabify.utils.errors import FileExtensionException
+
+from pytabify.bootstrap import (
+    build_create_table_from_file_use_case,
+    build_create_table_from_records_use_case,
+)
+from pytabify.domain.data_table import DataTable
 
 class DataTableCreator:
     """Permite crear un DataTable a partir de un archivo o de una lista de diccionarios.
@@ -29,37 +27,9 @@ class DataTableCreator:
     @staticmethod
     def from_file(path: str, **kwargs) -> DataTable:
         """Crea un DataTable a partir de un archivo."""
-        data = DataTableCreator._read_data(path, **kwargs)
-        return DataTableCreator._create_dt(data)
+        return build_create_table_from_file_use_case().execute(path, **kwargs)
 
     @staticmethod
     def from_records(records: list[dict[str, Any]]) -> DataTable:
         """Crea un DataTable a partir de una lista de diccionarios."""
-        return DataTableCreator._create_dt(records)
-
-    @staticmethod
-    def _read_data(path, **kwargs):
-        _, ext_file = os.path.splitext(path)
-        if ext_file not in FileFormats:
-            raise FileExtensionException(f"La extension {ext_file} no es valida.")
-        reading_strategy = FileFormats(ext_file).get_strategy()
-        data = reading_strategy(path, **kwargs).read()
-        validate_data(data)
-        return data
-
-    @staticmethod
-    def _create_dt(data):
-        observer = FieldChangeObserver()
-        rows = [
-            DTRow(
-                fields=[
-                    DTField(name, value, index)
-                    for index, (name, value) in enumerate(record.items())
-                ],
-                index=row_index,
-                observer=observer
-            )
-            for row_index, record in enumerate(data)
-        ]
-
-        return DataTable(rows, observer)
+        return build_create_table_from_records_use_case().execute(records)

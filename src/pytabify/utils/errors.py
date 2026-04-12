@@ -13,6 +13,9 @@ class FileWritingException(pytabifyError):
 class FileExtensionException(pytabifyError):
     """FileReadingException"""
 
+class DataTableValidationException(pytabifyError):
+    """DataTableValidationException"""
+
 class SheetNameHasNotEmptyException(pytabifyError):
     """SheetNameHasNotEmptyException"""
 
