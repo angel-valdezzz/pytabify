@@ -132,10 +132,42 @@ Guardar datos en Excel
 
 ## 🧪 Pruebas
 
-Para ejecutar los tests unitarios:
+El proyecto cuenta con dos suites principales:
+
+- `utests`: suite unitaria enfocada en dominio, casos de uso, adaptadores y compatibilidad.
+- `atests`: suite de aceptación con **pytest + Cucumber/Gherkin** en español para validar flujos end-to-end sobre la API pública y el wrapper de Robot.
+
+### Instalar dependencias de desarrollo
 
 ```sh
-poetry run pytest -q
+poetry install
+```
+
+### Ejecutar toda la suite
+
+```sh
+poetry run pytest
+```
+
+### Ejecutar solo tests unitarios
+
+```sh
+poetry run pytest utests -q
+```
+
+### Ejecutar solo tests de aceptación con Cucumber
+
+```sh
+poetry run pytest atests -q --no-cov
+```
+
+### Notas sobre los tests de aceptación
+
+- Los escenarios viven en archivos `.feature`.
+- La sintaxis Gherkin usa `# language: es` para definir los pasos en español.
+- Los tests de aceptación usan archivos temporales reales (`JSON`, `CSV`, `XLSX`) para validar flujos completos.
+- La configuración de `pytest` exige cobertura mínima al ejecutar la suite completa.
+- Si ejecutas solo `atests`, usa `--no-cov` para evitar que la puerta global de cobertura falle por ejecutar solo un subconjunto del proyecto.
 ```
 
 ---
