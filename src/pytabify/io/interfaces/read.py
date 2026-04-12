@@ -1,16 +1,16 @@
-import os
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
+from typing import Any
+
 
 class ReadingStrategy(ABC):
-    """ReadingStrategy"""
+    """Contrato legacy para estrategias de lectura."""
+
     def __init__(self, path: str, **kwargs):
         self._path = path
-        self._sheet_name = kwargs.get("sheet_name")
-        self._encoding = kwargs.get("encoding", "utf-8")
+        self._kwargs = kwargs
 
     @abstractmethod
-    def read(self) -> list[dict[str, str]]:
+    def read(self) -> list[dict[str, Any]]:
         """read"""
-
-    def _file_exists(self):
-        return os.path.exists(self._path)

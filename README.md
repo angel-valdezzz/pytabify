@@ -1,20 +1,31 @@
 ## 📌 pytabify
 
-**📊 Tabify your data, Python-style**  
+**📊 Tabify your data, Python-style**
 
 *📊 Tabula tus datos con magia Python*
 
-**pytabify** es una librería de propósito general para la manipulación, transformación y análisis de datos tabulares obtenidos a través de diversos formatos de archivo (**CSV, JSON, Excel**). Ofrece una API intuitiva y flexible que permite crear, validar y persistir estructuras de datos (**DataTables**), facilitando su integración en proyectos de **automatización de pruebas**, **scripts** y **aplicaciones de análisis de datos**.
+**pytabify** es una librería ligera para cargar, validar y persistir datos tabulares desde **CSV, JSON y Excel**, pensada para **automatización de pruebas**, **fixtures**, **scripts** y flujos de datos simples en Python y Robot Framework.
 
 ---
 
 ## 🚀 Características
 
 ✅ **Soporte para múltiples formatos:** Importa datos desde archivos CSV, JSON y Excel.  
-✅ **Estructura tabular flexible:** Manipula datos con un enfoque basado en filas y columnas.  
-✅ **Validación de datos integrada:** Usa JSON Schema para garantizar la calidad de los datos.  
-✅ **Fácil integración con frameworks de pruebas:** Compatible con **Robot Framework, unittest, pytest, etc.**  
+✅ **Contrato tabular estable:** Mantiene columnas ordenadas y consistentes en toda la tabla.  
+✅ **Preserva tipos nativos:** Conserva enteros, booleanos y `None` en memoria.  
+✅ **Wrapper oficial para Robot Framework:** Expone keywords y adaptadores amigables para Robot.  
 ✅ **Exportación flexible:** Guarda los datos en distintos formatos según sea necesario.  
+
+---
+
+## 🧱 Arquitectura
+
+El paquete sigue una separación basada en **Clean Architecture** y **arquitectura hexagonal**:
+
+- `domain`: entidades y reglas del modelo tabular.
+- `application`: puertos y casos de uso.
+- `adapters`: adaptadores concretos para archivos y Robot Framework.
+- `creator.py` y `saver.py`: fachadas públicas que componen los casos de uso sin exponer la infraestructura interna.
 
 ---
 
@@ -46,16 +57,16 @@ datatable = DataTableCreator.from_file("data.xlsx", sheet_name="Hoja1")
 ### 📌 Accediendo a los datos
 ```python
 # Obtener una fila específica
-row = datatable[0]  
-print(row.first_name.value)
+row = datatable[0]
+print(row.name.value)
 
 # Iterar sobre filas
 for row in datatable:
     print(row.to_dict())
 
-# Modificar valores
-row.new_field = "Nuevo Valor"
-row["edad"] = 25
+# Modificar valores sin duplicar columnas
+row["age"] = 31
+row.country = "MX"
 ```
 
 ### 📌 Guardando datos
@@ -76,25 +87,44 @@ DataTableSaver.into_xlsx(datatable, "output.xlsx")
 
 ## 🛠️ Integración con Pruebas Automatizadas
 
-**pytabify** está diseñado para funcionar en entornos de **pruebas automatizadas**.  
-Ejemplo de uso en **Robot Framework**:
+**pytabify** está diseñado para funcionar en entornos de **pruebas automatizadas**.
 
+### Python
+```python
+from pytabify import DataTableCreator
+
+datatable = DataTableCreator.from_records(
+    [
+        {"name": "Alice", "age": 30},
+        {"name": "Bob", "age": 25},
+    ]
+)
+
+assert datatable[0].name.value == "Alice"
+assert datatable[1].age.value == 25
+```
+
+### Robot Framework
 ```robot
 *** Settings ***
-Library    pytabify.DataTableCreator     AS    DataTableCreator
-Library    pytabify.DataTableSaver       AS    DataTableSaver
+Library    pytabify.robot.PyTabifyLibrary    WITH NAME    PyTabify
 
 *** Test Cases ***
 Leer datos desde CSV
-    ${datatable}=    DataTableCreator.From File    path=data.csv
+    ${datatable}=    PyTabify.Create Data Table From File    path=data.csv
     Should Not Be Empty    ${datatable}
 
 Validar un campo específico
-    ${row}=    Get From List    ${datatable}    0
-    Should Be Equal As Strings    ${row.first_name}    "Alice"
+    ${row}=    PyTabify.Get Data Table Row    ${datatable}    0
+    Should Be Equal As Strings    ${row.name}    Alice
+    Should Be Equal As Integers    ${row}[age]    30
+
+Modificar una celda y guardar
+    ${datatable}=    PyTabify.Set Data Table Value    ${datatable}    0    country    MX
+    PyTabify.Save Data Table To Json    ${datatable}    path=output.json
 
 Guardar datos en Excel
-    DataTableSaver.Into Xlsx    ${datatable}    path=output.xlsx
+    PyTabify.Save Data Table To Xlsx    ${datatable}    path=output.xlsx
     File Should Exist    output.xlsx
 ```
 
@@ -105,7 +135,7 @@ Guardar datos en Excel
 Para ejecutar los tests unitarios:
 
 ```sh
-poetry run pytest -s .\utests\test_pytabify.py
+poetry run pytest -q
 ```
 
 ---
@@ -113,5 +143,3 @@ poetry run pytest -s .\utests\test_pytabify.py
 ## 📜 Licencia
 
 Este proyecto está bajo la licencia **MIT**. Consulta el archivo `LICENSE` para más detalles.
-
----

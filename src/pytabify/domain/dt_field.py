@@ -1,43 +1,46 @@
+from typing import Any
+
+
 class DTField:
-    """DTField"""
-    def __init__(self, name: str, value: str, index: int):
+    """Representa una celda dentro de una fila tabular."""
+
+    def __init__(self, name: str, value: Any, index: int):
         self._name = str(name)
-        self._value = str(value)
+        self._value = value
         self._index = index
-        self._len = len(str(value))
 
     def __str__(self):
-        return self._value
+        return "" if self._value is None else str(self._value)
 
     @property
     def is_none(self):
-        """is_none"""
         return self._value is None
 
     @property
     def is_empty(self):
-        """is_empty"""
         return self._value == ""
 
     @property
     def name(self):
-        """name"""
         return self._name
 
     @property
     def value(self):
-        """value"""
         return self._value
 
     @property
     def index(self):
-        """index"""
         return self._index
 
     def __len__(self):
-        return self._len
+        return self.length
 
     @property
     def length(self):
-        """length"""
-        return self._len
+        return 0 if self._value is None else len(str(self._value))
+
+    def set_value(self, value: Any):
+        self._value = value
+
+    def set_index(self, index: int):
+        self._index = index
