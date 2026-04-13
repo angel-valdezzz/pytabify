@@ -1,0 +1,106 @@
+site_name: pytabify
+site_description: Documentacion tecnica de pytabify para Python y Robot Framework.
+site_url: https://angel-valdezzz.github.io/pytabify/
+repo_url: https://github.com/angel-valdezzz/pytabify
+repo_name: angel-valdezzz/pytabify
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: es
+  icon:
+    logo: material/table-large
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+
+nav:
+  - Inicio: index.md
+  - Primeros pasos:
+      - Instalacion: getting-started/installation.md
+      - Inicio rapido: getting-started/quickstart.md
+  - Uso:
+      - Python: examples/python.md
+      - Robot Framework: examples/robot-framework.md
+  - Referencia:
+      - Crear tablas: reference/creator.md
+      - Guardar tablas: reference/saver.md
+      - DataTable: reference/data-table.md
+      - Formatos: reference/file-formats.md
+  - Soporte:
+      - Errores comunes: troubleshooting/common-errors.md
+  - Interna:
+      - Arquitectura: internal/architecture.md
+      - Extender formatos: internal/extending-readers-writers.md
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: false
+      fallback_to_build_date: true
+      locale: es
+      type: datetime
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@11/dist/mermaid.min.js
+  - assets/javascripts/mermaid.js
+
+extra:
+  generator: false

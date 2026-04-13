@@ -1,10 +1,12 @@
 name: CI
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
-      - '**'
-      - '!main'
+      - main
   pull_request:
     branches:
       - main
@@ -16,11 +18,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install Poetry
         run: pip install poetry
@@ -42,3 +46,28 @@ jobs:
 
       - name: Run tests
         run: poetry run pytest
+
+  deploy-docs:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install dependencies
+        run: poetry install --no-interaction
+
+      - name: Deploy documentation to GitHub Pages
+        run: poetry run mkdocs gh-deploy --force
