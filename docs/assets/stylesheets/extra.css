@@ -1,0 +1,18 @@
+.hero {
+  padding: 1.2rem 0 0.8rem;
+}
+
+.hero p,
+.hero {
+  font-size: 1.05rem;
+}
+
+.grid.cards > ul > li,
+.md-typeset .grid.cards > ul > li {
+  border-radius: 0.9rem;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: rgba(0, 150, 136, 0.35);
+  box-shadow: 0 0.6rem 1.4rem rgba(15, 23, 42, 0.08);
+}
