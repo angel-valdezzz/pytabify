@@ -1,95 +1,81 @@
-## 📌 pytabify
+## pytabify
 
-**📊 Tabify your data, Python-style**
+**Tabify your data, Python-style**
 
-*📊 Tabula tus datos con magia Python*
+*Tabula tus datos con Python*
 
-**pytabify** es una librería ligera para cargar, validar y persistir datos tabulares desde **CSV, JSON y Excel**, pensada para **automatización de pruebas**, **fixtures**, **scripts** y flujos de datos simples en Python y Robot Framework.
+`pytabify` es una librería ligera para cargar, validar y persistir datos tabulares desde `CSV`, `JSON` y `XLSX`. Está pensada para automatización de pruebas, fixtures, scripts y flujos simples de datos en Python y Robot Framework.
 
----
+## Documentation
 
-## 🚀 Características
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-0f766e?style=flat-square)](https://angel-valdezzz.github.io/pytabify/)
 
-✅ **Soporte para múltiples formatos:** Importa datos desde archivos CSV, JSON y Excel.  
-✅ **Contrato tabular estable:** Mantiene columnas ordenadas y consistentes en toda la tabla.  
-✅ **Preserva tipos nativos:** Conserva enteros, booleanos y `None` en memoria.  
-✅ **Wrapper oficial para Robot Framework:** Expone keywords y adaptadores amigables para Robot.  
-✅ **Exportación flexible:** Guarda los datos en distintos formatos según sea necesario.  
+Puedes consultar la documentación completa aquí:
 
----
+https://angel-valdezzz.github.io/pytabify/
 
-## 🧱 Arquitectura
+## Características
 
-El paquete sigue una separación basada en **Clean Architecture** y **arquitectura hexagonal**:
+- Soporte para múltiples formatos: `CSV`, `JSON` y `XLSX`.
+- Contrato tabular estable con columnas ordenadas y consistentes.
+- Preserva tipos nativos en memoria.
+- Wrapper oficial para Robot Framework.
+- Exportación flexible a múltiples formatos.
+
+## Arquitectura
+
+El paquete sigue una separación basada en clean architecture y arquitectura hexagonal:
 
 - `domain`: entidades y reglas del modelo tabular.
 - `application`: puertos y casos de uso.
 - `adapters`: adaptadores concretos para archivos y Robot Framework.
-- `creator.py` y `saver.py`: fachadas públicas que componen los casos de uso sin exponer la infraestructura interna.
+- `creator.py` y `saver.py`: fachadas públicas enfocadas en la API de uso.
 
----
+## Instalación
 
-## 📦 Instalación
-
-### Usando pip:
-```sh
+```bash
 pip install pytabify
 ```
 
----
+## Uso básico
 
-## 📖 Uso Básico
+### Crear un DataTable desde archivo
 
-### 📌 Creando un DataTable desde un archivo
 ```python
 from pytabify import DataTableCreator
 
-# Desde CSV
-datatable = DataTableCreator.from_file("data.csv")
-
-# Desde JSON
 datatable = DataTableCreator.from_file("data.json")
-
-# Desde Excel (requiere indicar la hoja)
+datatable = DataTableCreator.from_file("data.csv", encoding="utf-8")
 datatable = DataTableCreator.from_file("data.xlsx", sheet_name="Hoja1")
 ```
 
-### 📌 Accediendo a los datos
+### Acceder y modificar datos
+
 ```python
-# Obtener una fila específica
 row = datatable[0]
 print(row.name.value)
 
-# Iterar sobre filas
 for row in datatable:
     print(row.to_dict())
 
-# Modificar valores sin duplicar columnas
 row["age"] = 31
 row.country = "MX"
 ```
 
-### 📌 Guardando datos
+### Guardar datos
+
 ```python
 from pytabify import DataTableSaver
 
-# Guardar en CSV
 DataTableSaver.into_csv(datatable, "output.csv")
-
-# Guardar en JSON
 DataTableSaver.into_json(datatable, "output.json")
-
-# Guardar en Excel
 DataTableSaver.into_xlsx(datatable, "output.xlsx")
 ```
 
----
-
-## 🛠️ Integración con Pruebas Automatizadas
-
-**pytabify** está diseñado para funcionar en entornos de **pruebas automatizadas**.
+## Integración con pruebas automatizadas
 
 ### Python
+
 ```python
 from pytabify import DataTableCreator
 
@@ -105,7 +91,8 @@ assert datatable[1].age.value == 25
 ```
 
 ### Robot Framework
-```robot
+
+```robotframework
 *** Settings ***
 Library    pytabify.robot.PyTabifyLibrary    WITH NAME    PyTabify
 
@@ -114,73 +101,25 @@ Leer datos desde CSV
     ${datatable}=    PyTabify.Create Data Table From File    path=data.csv
     Should Not Be Empty    ${datatable}
 
-Validar un campo específico
+Validar un campo especifico
     ${row}=    PyTabify.Get Data Table Row    ${datatable}    0
     Should Be Equal As Strings    ${row.name}    Alice
     Should Be Equal As Integers    ${row}[age]    30
-
-Modificar una celda y guardar
-    ${datatable}=    PyTabify.Set Data Table Value    ${datatable}    0    country    MX
-    PyTabify.Save Data Table To Json    ${datatable}    path=output.json
-
-Guardar datos en Excel
-    PyTabify.Save Data Table To Xlsx    ${datatable}    path=output.xlsx
-    File Should Exist    output.xlsx
 ```
 
----
+## Pruebas
 
-## 🧪 Pruebas
-
-El proyecto cuenta con dos suites principales:
-
-- `utests`: suite unitaria enfocada en dominio, casos de uso, adaptadores y compatibilidad.
-- `atests`: suite de aceptación con **pytest + Cucumber/Gherkin** en español para validar flujos end-to-end sobre la API pública y el wrapper de Robot.
-
-### Instalar dependencias de desarrollo
-
-```sh
+```bash
 poetry install
-```
-
-### Ejecutar toda la suite
-
-```sh
 poetry run pytest
-```
-
-### Ejecutar solo tests unitarios
-
-```sh
 poetry run pytest utests -q
-```
-
-### Ejecutar solo tests de aceptación con Cucumber
-
-```sh
 poetry run pytest atests -q --no-cov
-```
-
-### Ejecutar validaciones de calidad
-
-```sh
 poetry run ruff check .
 poetry run ruff format .
 poetry run mypy src/pytabify
 poetry run lint-imports
 ```
 
-### Notas sobre los tests de aceptación
+## Licencia
 
-- Los escenarios viven en archivos `.feature`.
-- La sintaxis Gherkin usa `# language: es` para definir los pasos en español.
-- Los tests de aceptación usan archivos temporales reales (`JSON`, `CSV`, `XLSX`) para validar flujos completos.
-- La configuración de `pytest` exige cobertura mínima al ejecutar la suite completa.
-- Si ejecutas solo `atests`, usa `--no-cov` para evitar que la puerta global de cobertura falle por ejecutar solo un subconjunto del proyecto.
-```
-
----
-
-## 📜 Licencia
-
-Este proyecto está bajo la licencia **MIT**. Consulta el archivo `LICENSE` para más detalles.
+Este proyecto está bajo la licencia `MIT`. Consulta el archivo `LICENSE` para más detalles.
