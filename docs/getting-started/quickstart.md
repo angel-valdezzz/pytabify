@@ -144,6 +144,33 @@ print(row.to_dict())
 !!! tip "Mutacion segura del esquema"
     Si agregas una columna nueva en una fila, `pytabify` extiende el esquema completo y rellena `None` en las demas filas.
 
+## Parametros importantes de uso basico
+
+| Parametro | Aplica a | Para que sirve |
+| --- | --- | --- |
+| `path` | `from_file`, `into_csv`, `into_json`, `into_xlsx` | define archivo de entrada o salida |
+| `sheet_name` | `from_file` con `XLSX` | indica la hoja especifica a leer |
+| `encoding` | lectura y escritura de `CSV` o `JSON` | controla la codificacion del archivo |
+| `records` | `from_records` | recibe la coleccion tabular inicial |
+
+=== "Parametro `path`"
+
+    ```python title="Cargar desde archivo"
+    datatable = DataTableCreator.from_file("people.json")
+    ```
+
+=== "Parametro `sheet_name`"
+
+    ```python title="Leer una hoja concreta"
+    datatable = DataTableCreator.from_file("people.xlsx", sheet_name="People")
+    ```
+
+=== "Parametro `encoding`"
+
+    ```python title="Guardar JSON con codificacion explicita"
+    DataTableSaver.into_json(datatable, "people.json", encoding="utf-8")
+    ```
+
 ## Ejemplo comparativo
 
 === "Input"
@@ -186,6 +213,20 @@ print(row.to_dict())
     ```python title="Lectura de una hoja especifica"
     datatable = DataTableCreator.from_file("people.xlsx", sheet_name="People")
     ```
+
+## Errores frecuentes en uso basico
+
+!!! warning "Archivo inexistente"
+    Si `path` no apunta a un archivo real, la carga falla aunque el formato sea correcto.
+
+!!! warning "Esquema no rectangular en `from_records`"
+    Todas las filas deben compartir el mismo conjunto de columnas. Si una fila cambia el esquema, la validacion falla.
+
+!!! warning "Tipos distintos al leer `CSV`"
+    Al leer `CSV`, los valores entran como texto. Si necesitas preservar tipos nativos, usa `JSON`, `XLSX` o `from_records`.
+
+??? info "Cuando subir de nivel"
+    Si el flujo basico ya te queda corto, el siguiente salto natural es revisar [DataTableCreator](../reference/creator.md) y [DataTableSaver](../reference/saver.md) para entender mejor cada variante.
 
 ## Despues del quickstart
 
