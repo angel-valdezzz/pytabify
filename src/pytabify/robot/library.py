@@ -27,7 +27,9 @@ class PyTabifyLibrary:
         if sheet_name is None:
             datatable = self._create_from_file.execute(path, encoding=encoding)
         else:
-            datatable = self._create_from_file.execute(path, sheet_name=sheet_name, encoding=encoding)
+            datatable = self._create_from_file.execute(
+                path, sheet_name=sheet_name, encoding=encoding
+            )
         return RobotDataTable(datatable)
 
     def create_data_table_from_records(self, records: list[dict[str, Any]]) -> RobotDataTable:

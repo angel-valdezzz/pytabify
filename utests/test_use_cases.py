@@ -6,7 +6,7 @@ from pytabify.application.use_cases.create_data_table_from_file import CreateDat
 from pytabify.application.use_cases.create_data_table_from_records import CreateDataTableFromRecords
 from pytabify.application.use_cases.save_data_table import SaveDataTable
 from pytabify.domain.data_table import DataTable
-from pytabify.utils.errors import DataTableValidationException
+from pytabify.domain.errors import DataTableValidationException
 
 
 def test_create_data_table_from_records_returns_domain_table():

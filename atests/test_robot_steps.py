@@ -5,7 +5,6 @@ from pytest_bdd import given, parsers, scenarios, then, when
 
 from pytabify.robot import PyTabifyLibrary, RobotDataRow, RobotDataTable
 
-
 scenarios("features/robot.feature")
 
 
@@ -42,15 +41,23 @@ def given_json_file(robot_context):
 
 @when("creo una RobotDataTable desde registros")
 def when_create_robot_table_from_records(robot_context):
-    robot_context["datatable"] = robot_context["library"].create_data_table_from_records(robot_context["records"])
+    robot_context["datatable"] = robot_context["library"].create_data_table_from_records(
+        robot_context["records"]
+    )
 
 
 @when("obtengo la fila 0 con la librería de Robot")
 def when_get_first_row(robot_context):
-    robot_context["row"] = robot_context["library"].get_data_table_row(robot_context["datatable"], 0)
+    robot_context["row"] = robot_context["library"].get_data_table_row(
+        robot_context["datatable"], 0
+    )
 
 
-@when(parsers.parse('asigno la columna "{column_name}" con el valor "{value}" en la fila 0 usando Robot'))
+@when(
+    parsers.parse(
+        'asigno la columna "{column_name}" con el valor "{value}" en la fila 0 usando Robot'
+    )
+)
 def when_set_robot_value(robot_context, column_name, value):
     robot_context["datatable"] = robot_context["library"].set_data_table_value(
         robot_context["datatable"],
@@ -69,7 +76,9 @@ def when_save_robot_table_as_json(robot_context):
 
 @when("creo una RobotDataTable desde archivo JSON")
 def when_create_robot_table_from_json_file(robot_context):
-    robot_context["datatable"] = robot_context["library"].create_data_table_from_file(str(robot_context["input_path"]))
+    robot_context["datatable"] = robot_context["library"].create_data_table_from_file(
+        str(robot_context["input_path"])
+    )
 
 
 @then("la fila de Robot expone acceso por atributo y por llave")

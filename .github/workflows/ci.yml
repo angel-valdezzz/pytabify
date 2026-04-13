@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  test:
+  validate:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,19 @@ jobs:
         run: pip install poetry
 
       - name: Install dependencies
-        run: poetry install
+        run: poetry install --no-interaction
+
+      - name: Ruff lint
+        run: poetry run ruff check .
+
+      - name: Ruff format check
+        run: poetry run ruff format --check .
+
+      - name: Mypy
+        run: poetry run mypy src/pytabify
+
+      - name: Import Linter
+        run: poetry run lint-imports
 
       - name: Run tests
         run: poetry run pytest

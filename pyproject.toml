@@ -6,7 +6,7 @@ authors = [
     { name = "Angel Gerardo Molina Valdez", email = "angelgerardomolinavaldez@gmail.com" },
 ]
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { file = "LICENSE" }
 
 dependencies = ["openpyxl (>=3.1.5,<4.0.0)"]
@@ -16,6 +16,9 @@ robotframework = "^7.2.2"
 pytest = "^8.3.4"
 pytest-cov = "^7.0.0"
 pytest-bdd = "^8.1.0"
+ruff = "^0.11.13"
+mypy = "^1.15.0"
+import-linter = "^2.3"
 
 [tool.pytest.ini_options]
 testpaths = ["utests", "atests"]
@@ -23,6 +26,84 @@ addopts = "--strict-config --strict-markers --cov=src/pytabify --cov-report=term
 markers = [
     "acceptance: marks cucumber-style acceptance tests",
 ]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "utests", "atests"]
+extend-exclude = [
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "C90", "ARG", "RET", "RUF", "PTH"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.per-file-ignores]
+"src/pytabify/__init__.py" = ["F401"]
+"src/pytabify/application/ports/__init__.py" = ["F401"]
+"src/pytabify/application/use_cases/__init__.py" = ["F401"]
+"src/pytabify/domain/__init__.py" = ["F401"]
+"src/pytabify/robot/__init__.py" = ["F401"]
+"src/pytabify/adapters/files/readers/__init__.py" = ["F401"]
+"src/pytabify/adapters/files/writers/__init__.py" = ["F401"]
+"utests/test_io.py" = ["ARG001"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.10"
+files = ["src/pytabify"]
+mypy_path = "src"
+explicit_package_bases = true
+warn_return_any = true
+warn_unused_configs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unreachable = true
+no_implicit_optional = true
+strict_optional = true
+check_untyped_defs = true
+pretty = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pytabify.domain.*",
+    "pytabify.application.*",
+    "pytabify.bootstrap",
+    "pytabify.creator",
+    "pytabify.saver",
+]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_any_generics = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pytabify.adapters.*",
+    "pytabify.robot.*",
+    "pytabify",
+]
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+disallow_any_generics = false
+
+[[tool.mypy.overrides]]
+module = ["openpyxl"]
+ignore_missing_imports = true
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

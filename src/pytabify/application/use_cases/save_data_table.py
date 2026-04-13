@@ -8,6 +8,6 @@ class SaveDataTable:
     def __init__(self, writer_resolver: WriterResolver):
         self._writer_resolver = writer_resolver
 
-    def execute(self, datatable: DataTable, path: str, encoding: str = "utf-8"):
+    def execute(self, datatable: DataTable, path: str, encoding: str = "utf-8") -> None:
         writer = self._writer_resolver.resolve(path)
         writer.write(datatable, path, encoding=encoding)

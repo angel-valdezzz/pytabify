@@ -1,7 +1,7 @@
 import pytest
 
+from pytabify.domain.errors import DataTableValidationException
 from pytabify.domain.validation import validate_records
-from pytabify.utils.errors import DataTableValidationException
 
 
 def test_validate_records_rejects_non_list_input():

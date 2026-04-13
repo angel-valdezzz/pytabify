@@ -161,6 +161,15 @@ poetry run pytest utests -q
 poetry run pytest atests -q --no-cov
 ```
 
+### Ejecutar validaciones de calidad
+
+```sh
+poetry run ruff check .
+poetry run ruff format .
+poetry run mypy src/pytabify
+poetry run lint-imports
+```
+
 ### Notas sobre los tests de aceptación
 
 - Los escenarios viven en archivos `.feature`.

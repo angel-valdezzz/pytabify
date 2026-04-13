@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-import os
+from pathlib import Path
 
+from pytabify.adapters.files.errors import FileExtensionException
 from pytabify.adapters.files.formats import FileFormats
 from pytabify.adapters.files.readers import (
     CSVFileReadingAdapter,
@@ -14,12 +15,11 @@ from pytabify.adapters.files.writers import (
     XlsxFileWritingAdapter,
 )
 from pytabify.application.ports import ReaderResolver, TableReader, TableWriter, WriterResolver
-from pytabify.utils.errors import FileExtensionException
 
 
 class FileReaderResolver(ReaderResolver):
     def resolve(self, path: str) -> TableReader:
-        _, extension = os.path.splitext(path)
+        extension = Path(path).suffix
         try:
             file_format = FileFormats(extension)
         except ValueError as exc:
@@ -35,7 +35,7 @@ class FileReaderResolver(ReaderResolver):
 
 class FileWriterResolver(WriterResolver):
     def resolve(self, path: str) -> TableWriter:
-        _, extension = os.path.splitext(path)
+        extension = Path(path).suffix
         try:
             file_format = FileFormats(extension)
         except ValueError as exc:

@@ -4,13 +4,13 @@ from typing import Any
 
 from openpyxl import load_workbook
 
-from pytabify.application.ports.table_reader import TableReader
-from pytabify.utils.errors import (
+from pytabify.adapters.files.errors import (
     FileNotFoundException,
     FileReadingException,
     SheetNameDoesNotExistException,
     SheetNameHasNotEmptyException,
 )
+from pytabify.application.ports.table_reader import TableReader
 
 
 class XLSXReadingAdapter(TableReader):
@@ -24,7 +24,9 @@ class XLSXReadingAdapter(TableReader):
         except FileNotFoundError as exc:
             raise FileNotFoundException(f"El archivo {path} NO Existe verifique la ruta.") from exc
         except OSError as exc:
-            raise FileReadingException("Ocurrio un error al abrir el archivo de datos xlsx") from exc
+            raise FileReadingException(
+                "Ocurrio un error al abrir el archivo de datos xlsx"
+            ) from exc
 
         if sheet_name not in workbook.sheetnames:
             raise SheetNameDoesNotExistException(f"La hoja {sheet_name} no existe en el archivo")
