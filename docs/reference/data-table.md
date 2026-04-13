@@ -52,6 +52,22 @@
 | `datatable.headers()` | headers con nombre e indice |
 | `datatable.to_dict()` | lista serializable de registros |
 
+## Ejemplos reales de uso
+
+=== "Inspeccionar encabezados"
+
+    ```python title="Ver schema actual"
+    print(datatable.column_names)
+    print([header.name for header in datatable.headers()])
+    ```
+
+=== "Mutar y serializar"
+
+    ```python title="Agregar una columna y exportar a dict"
+    datatable[0]["country"] = "MX"
+    print(datatable.to_dict())
+    ```
+
 !!! tip "Schema-first"
     El esquema no depende de la fila que leas despues. Queda definido por la validacion inicial y por las expansiones controladas que hagas sobre la tabla.
 
@@ -59,3 +75,9 @@
     - No asumas que leer desde `CSV` preserva tipos nativos.
     - No asumas que una columna ausente en una fila puede omitirse sin afectar el contrato.
     - No asumas que una columna inexistente devolvera `None`; en lectura directa puede lanzar `KeyError` o `AttributeError`.
+
+## Buenas practicas de uso
+
+- Lee columnas existentes por atributo o llave segun el caso, pero no mezcles supuestos sobre columnas faltantes.
+- Cuando necesites una salida serializable, usa `to_dict()` en lugar de reconstruir registros manualmente.
+- Agrega columnas nuevas sobre la tabla ya creada para que el schema se propague correctamente.
