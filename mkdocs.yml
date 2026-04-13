@@ -22,8 +22,6 @@ theme:
     - navigation.tracking
     - search.highlight
     - search.suggest
-    - content.action.edit
-    - content.action.view
     - content.code.copy
     - content.tabs.link
     - toc.follow
