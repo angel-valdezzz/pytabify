@@ -20,6 +20,7 @@ ruff = "^0.11.13"
 mypy = "^1.15.0"
 import-linter = "^2.3"
 mkdocs-material = "^9.7.6"
+mkdocs-git-revision-date-localized-plugin = "^1.5.1"
 
 [tool.pytest.ini_options]
 testpaths = ["utests", "atests"]

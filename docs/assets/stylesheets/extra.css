@@ -1,10 +1,25 @@
 .hero {
-  padding: 1.2rem 0 0.8rem;
+  padding: 1.25rem 1.25rem 1rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(0, 150, 136, 0.16);
+  border-radius: 1rem;
+  background:
+    linear-gradient(135deg, rgba(0, 150, 136, 0.08), rgba(34, 211, 238, 0.05)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.72));
 }
 
 .hero p,
 .hero {
   font-size: 1.05rem;
+}
+
+.hero .md-button {
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.md-typeset .grid.cards > ul {
+  gap: 0.9rem;
 }
 
 .grid.cards > ul > li,
@@ -15,4 +30,11 @@
 .md-typeset .grid.cards > ul > li:hover {
   border-color: rgba(0, 150, 136, 0.35);
   box-shadow: 0 0.6rem 1.4rem rgba(15, 23, 42, 0.08);
+}
+
+[data-md-color-scheme="slate"] .hero {
+  border-color: rgba(45, 212, 191, 0.18);
+  background:
+    linear-gradient(135deg, rgba(13, 148, 136, 0.16), rgba(8, 145, 178, 0.1)),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.72));
 }

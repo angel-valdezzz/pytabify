@@ -19,7 +19,7 @@ Este ejemplo toma un archivo `JSON`, lo carga en memoria, agrega una columna nue
 
 === "Python"
 
-    ```python title="quickstart.py"
+    ```python title="quickstart.py" hl_lines="3 8 10"
     from pytabify import DataTableCreator, DataTableSaver
 
     datatable = DataTableCreator.from_file("people.json")
@@ -38,7 +38,7 @@ Este ejemplo toma un archivo `JSON`, lo carga en memoria, agrega una columna nue
 
 === "Robot Framework"
 
-    ```robotframework title="quickstart.robot"
+    ```robotframework title="quickstart.robot" hl_lines="6 10 11"
     *** Settings ***
     Library    pytabify.robot.PyTabifyLibrary    WITH NAME    PyTabify
 
@@ -97,43 +97,43 @@ Este ejemplo toma un archivo `JSON`, lo carga en memoria, agrega una columna nue
 !!! tip "Que demuestra este flujo"
     El ejemplo muestra las tres operaciones centrales de `pytabify`: lectura, mutacion con esquema estable y persistencia en otro formato.
 
-## Variantes del mismo flujo
+??? info "Variantes del mismo flujo"
 
-=== "Desde archivo"
+    === "Desde archivo"
 
-    ```python title="JSON -> DataTable -> CSV"
-    from pytabify import DataTableCreator, DataTableSaver
+        ```python title="JSON -> DataTable -> CSV" hl_lines="3 8 10"
+        from pytabify import DataTableCreator, DataTableSaver
 
-    datatable = DataTableCreator.from_file("people.json")
+        datatable = DataTableCreator.from_file("people.json")
 
-    print(datatable.column_names)
-    print(datatable[0].to_dict())
+        print(datatable.column_names)
+        print(datatable[0].to_dict())
 
-    datatable[0]["country"] = "MX"
+        datatable[0]["country"] = "MX"
 
-    DataTableSaver.into_csv(datatable, "people.csv")
-    ```
+        DataTableSaver.into_csv(datatable, "people.csv")
+        ```
 
-=== "Desde registros"
+    === "Desde registros"
 
-    ```python title="Lista de diccionarios -> DataTable -> JSON"
-    from pytabify import DataTableCreator, DataTableSaver
+        ```python title="Lista de diccionarios -> DataTable -> JSON" hl_lines="3 10 12"
+        from pytabify import DataTableCreator, DataTableSaver
 
-    datatable = DataTableCreator.from_records(
-        [
-            {"name": "Alice", "age": 30},
-            {"name": "Bob", "age": 25},
-        ]
-    )
+        datatable = DataTableCreator.from_records(
+            [
+                {"name": "Alice", "age": 30},
+                {"name": "Bob", "age": 25},
+            ]
+        )
 
-    datatable[1].country = "US"
+        datatable[1].country = "US"
 
-    DataTableSaver.into_json(datatable, "people.json")
-    ```
+        DataTableSaver.into_json(datatable, "people.json")
+        ```
 
 ## Que pasa en memoria
 
-```python title="Acceso por indice, atributo y llave"
+```python title="Acceso por indice, atributo y llave" hl_lines="1 3 4"
 row = datatable[0]
 
 print(row.name.value)
@@ -155,23 +155,23 @@ print(row.to_dict())
 
 === "Parametro `path`"
 
-    ```python title="Cargar desde archivo"
+    ```python title="Cargar desde archivo" hl_lines="1"
     datatable = DataTableCreator.from_file("people.json")
     ```
 
 === "Parametro `sheet_name`"
 
-    ```python title="Leer una hoja concreta"
+    ```python title="Leer una hoja concreta" hl_lines="1"
     datatable = DataTableCreator.from_file("people.xlsx", sheet_name="People")
     ```
 
 === "Parametro `encoding`"
 
-    ```python title="Guardar JSON con codificacion explicita"
+    ```python title="Guardar JSON con codificacion explicita" hl_lines="1"
     DataTableSaver.into_json(datatable, "people.json", encoding="utf-8")
     ```
 
-## Ejemplo comparativo
+## Resultado esperado
 
 === "Input"
 
@@ -191,7 +191,7 @@ print(row.to_dict())
     ]
     ```
 
-## Casos que debes recordar
+## Reglas practicas
 
 <div class="grid cards" markdown>
 
@@ -231,4 +231,5 @@ print(row.to_dict())
 ## Despues del quickstart
 
 [Ejemplos en Python](../examples/python.md){ .md-button .md-button--primary }
+[Ejemplos en Robot Framework](../examples/robot-framework.md){ .md-button }
 [Referencia de DataTableCreator](../reference/creator.md){ .md-button }

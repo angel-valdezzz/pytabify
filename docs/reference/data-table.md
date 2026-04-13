@@ -81,3 +81,6 @@
 - Lee columnas existentes por atributo o llave segun el caso, pero no mezcles supuestos sobre columnas faltantes.
 - Cuando necesites una salida serializable, usa `to_dict()` en lugar de reconstruir registros manualmente.
 - Agrega columnas nuevas sobre la tabla ya creada para que el schema se propague correctamente.
+
+[Crear tablas](creator.md){ .md-button .md-button--primary }
+[Guardar tablas](saver.md){ .md-button }

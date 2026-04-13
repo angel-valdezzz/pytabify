@@ -2,6 +2,9 @@
 
 `pytabify` expone un wrapper oficial para Robot Framework mediante `PyTabifyLibrary`.
 
+[Inicio rapido](../getting-started/quickstart.md){ .md-button .md-button--primary }
+[Arquitectura](../internal/architecture.md){ .md-button }
+
 ## Configuracion minima
 
 ```robotframework title="Importar la libreria"

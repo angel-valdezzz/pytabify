@@ -16,7 +16,7 @@ Fachada publica para construir un `DataTable` desde archivo o desde registros en
 
 === "JSON"
 
-    ```python title="Cargar JSON"
+    ```python title="Cargar JSON" hl_lines="3"
     from pytabify import DataTableCreator
 
     datatable = DataTableCreator.from_file("people.json")
@@ -24,7 +24,7 @@ Fachada publica para construir un `DataTable` desde archivo o desde registros en
 
 === "CSV"
 
-    ```python title="Cargar CSV"
+    ```python title="Cargar CSV" hl_lines="3"
     from pytabify import DataTableCreator
 
     datatable = DataTableCreator.from_file("people.csv", encoding="utf-8")
@@ -32,7 +32,7 @@ Fachada publica para construir un `DataTable` desde archivo o desde registros en
 
 === "XLSX"
 
-    ```python title="Cargar XLSX"
+    ```python title="Cargar XLSX" hl_lines="3"
     from pytabify import DataTableCreator
 
     datatable = DataTableCreator.from_file("people.xlsx", sheet_name="People")
@@ -56,7 +56,7 @@ Fachada publica para construir un `DataTable` desde archivo o desde registros en
 
 === "Valido"
 
-    ```python title="Lecturas correctas"
+    ```python title="Lecturas correctas" hl_lines="3"
     DataTableCreator.from_file("people.json")
     DataTableCreator.from_file("people.csv", encoding="utf-8")
     DataTableCreator.from_file("people.xlsx", sheet_name="People")
@@ -85,7 +85,7 @@ Fachada publica para construir un `DataTable` desde archivo o desde registros en
 
 ## `from_records(records)`
 
-```python title="Crear una tabla desde memoria"
+```python title="Crear una tabla desde memoria" hl_lines="1"
 datatable = DataTableCreator.from_records(
     [
         {"name": "Alice", "age": 30},
@@ -134,7 +134,7 @@ datatable = DataTableCreator.from_records(
 
 === "Preparar fixtures"
 
-    ```python title="Tabla desde memoria para pruebas"
+    ```python title="Tabla desde memoria para pruebas" hl_lines="1"
     datatable = DataTableCreator.from_records(
         [
             {"name": "Alice", "active": True},
@@ -145,7 +145,7 @@ datatable = DataTableCreator.from_records(
 
 === "Cargar un origen y seguir procesando"
 
-    ```python title="Usar la tabla en memoria"
+    ```python title="Usar la tabla en memoria" hl_lines="1 2 3"
     datatable = DataTableCreator.from_file("people.json")
     first_row = datatable[0].to_dict()
     headers = datatable.column_names
@@ -160,3 +160,6 @@ datatable = DataTableCreator.from_records(
 - Usa `from_file` cuando la fuente real sea un archivo del que quieres conservar estructura.
 - Mantén un esquema consistente en `records` y agrega columnas nuevas despues sobre la tabla, no antes con filas irregulares.
 - Para datos tipados, prefiere `JSON`, `XLSX` o `from_records` frente a `CSV`.
+
+[Guardar tablas](saver.md){ .md-button .md-button--primary }
+[Ver DataTable](data-table.md){ .md-button }

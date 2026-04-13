@@ -1,6 +1,6 @@
 # Instalacion
 
-Instala `pytabify` con el camino que corresponda a tu uso. Esta pagina cubre prerequisitos, pasos de instalacion, verificacion inicial y errores frecuentes.
+Instala `pytabify` con el camino que corresponda a tu uso. Esta pagina cubre prerequisitos, pasos minimos, verificacion y errores frecuentes.
 
 ## Prerequisitos
 
@@ -53,6 +53,16 @@ Instala `pytabify` con el camino que corresponda a tu uso. Esta pagina cubre pre
 !!! note "Que si necesitas preparar"
     Lo unico que debes tener listo es el origen de datos con el que vas a trabajar: un archivo `csv`, `json` o `xlsx`, o una lista de diccionarios en memoria.
 
+## Comandos basicos
+
+| Comando | Cuando usarlo |
+| --- | --- |
+| `pip install pytabify` | instalar la libreria para consumo |
+| `poetry install` | preparar el entorno de desarrollo |
+| `python -c "from pytabify import DataTableCreator; print('ok')"` | verificar instalacion minima |
+| `poetry run mkdocs serve` | iterar localmente sobre la documentacion |
+| `poetry run mkdocs build` | validar que el sitio compila |
+
 ## Verificacion minima
 
 === "Paquete instalado"
@@ -72,17 +82,7 @@ Instala `pytabify` con el camino que corresponda a tu uso. Esta pagina cubre pre
     ```
 
 !!! note "Cuando usar cada comando"
-    Usa `mkdocs serve` cuando quieras iterar en contenido y `mkdocs build` para validar que la navegacion, extensiones y enlaces compilan sin errores.
-
-## Comandos basicos
-
-| Comando | Cuando usarlo |
-| --- | --- |
-| `pip install pytabify` | instalar la libreria para consumo |
-| `poetry install` | preparar el entorno de desarrollo |
-| `python -c "from pytabify import DataTableCreator; print('ok')"` | verificar instalacion minima |
-| `poetry run mkdocs serve` | iterar localmente sobre la documentacion |
-| `poetry run mkdocs build` | validar que el sitio compila |
+    Usa `mkdocs serve` para iterar localmente y `mkdocs build` para validar que el sitio compila sin errores.
 
 ## Ejemplos de ejecucion
 
@@ -113,7 +113,7 @@ Aunque la instalacion no expone muchos parametros propios, estos son los mas rel
 ??? info "Cuando mirar estos parametros"
     Si la libreria ya instala bien pero el primer flujo falla al cargar o guardar archivos, casi siempre el problema real esta en `path`, `sheet_name` o `encoding`.
 
-## Dependencias de desarrollo relevantes
+??? info "Dependencias de desarrollo relevantes"
 
 | Dependencia | Para que sirve |
 | --- | --- |

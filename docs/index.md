@@ -114,6 +114,36 @@ Trabajar con datos tabulares pequenos o medianos suele degradarse rapido en codi
 3. Salta a `Python` o `Robot Framework` segun tu caso.
 4. Usa la referencia solo cuando ya sepas el flujo que quieres resolver.
 
+## Mapa rapido
+
+<div class="grid cards" markdown>
+
+-   __Instalacion__
+
+    Prepara el entorno y valida que la libreria carga.
+
+    [Abrir instalacion](getting-started/installation.md)
+
+-   __Inicio rapido__
+
+    Sigue un flujo completo con input, ejecucion y output esperado.
+
+    [Abrir quickstart](getting-started/quickstart.md)
+
+-   __Referencia__
+
+    Consulta `DataTableCreator`, `DataTableSaver` y `DataTable` sin recorrer toda la guia.
+
+    [Abrir referencia](reference/creator.md)
+
+-   __Interna__
+
+    Revisa arquitectura y extension solo si mantienes la herramienta.
+
+    [Abrir arquitectura](internal/architecture.md)
+
+</div>
+
 ??? info "Por que la referencia no va primero"
     La API publica de `pytabify` es pequena. Para este tipo de herramienta, una referencia larga al inicio agrega friccion. El orden elegido privilegia uso real primero y detalle despues.
 

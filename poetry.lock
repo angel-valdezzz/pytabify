@@ -395,6 +395,40 @@ python-dateutil = ">=2.8.1"
 dev = ["flake8", "markdown", "twine", "wheel"]
 
 [[package]]
+name = "gitdb"
+version = "4.0.12"
+description = "Git Object Database"
+optional = false
+python-versions = ">=3.7"
+groups = ["dev"]
+files = [
+    {file = "gitdb-4.0.12-py3-none-any.whl", hash = "sha256:67073e15955400952c6565cc3e707c554a4eea2e428946f7a4c162fab9bd9bcf"},
+    {file = "gitdb-4.0.12.tar.gz", hash = "sha256:5ef71f855d191a3326fcfbc0d5da835f26b13fbcba60c32c21091c349ffdb571"},
+]
+
+[package.dependencies]
+smmap = ">=3.0.1,<6"
+
+[[package]]
+name = "gitpython"
+version = "3.1.46"
+description = "GitPython is a Python library used to interact with Git repositories"
+optional = false
+python-versions = ">=3.7"
+groups = ["dev"]
+files = [
+    {file = "gitpython-3.1.46-py3-none-any.whl", hash = "sha256:79812ed143d9d25b6d176a10bb511de0f9c67b1fa641d82097b0ab90398a2058"},
+    {file = "gitpython-3.1.46.tar.gz", hash = "sha256:400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f"},
+]
+
+[package.dependencies]
+gitdb = ">=4.0.1,<5"
+
+[package.extras]
+doc = ["sphinx (>=7.1.2,<7.2)", "sphinx-autodoc-typehints", "sphinx_rtd_theme"]
+test = ["coverage[toml]", "ddt (>=1.1.1,!=1.4.3)", "mock ; python_version < \"3.8\"", "mypy (==1.18.2) ; python_version >= \"3.9\"", "pre-commit", "pytest (>=7.3.1)", "pytest-cov", "pytest-instafail", "pytest-mock", "pytest-sugar", "typing-extensions ; python_version < \"3.11\""]
+
+[[package]]
 name = "grimp"
 version = "3.14"
 description = "Builds a queryable graph of the imports within one or more Python packages."
@@ -910,6 +944,24 @@ files = [
 mergedeep = ">=1.3.4"
 platformdirs = ">=2.2.0"
 pyyaml = ">=5.1"
+
+[[package]]
+name = "mkdocs-git-revision-date-localized-plugin"
+version = "1.5.1"
+description = "Mkdocs plugin that enables displaying the localized date of the last git modification of a markdown file."
+optional = false
+python-versions = ">=3.10"
+groups = ["dev"]
+files = [
+    {file = "mkdocs_git_revision_date_localized_plugin-1.5.1-py3-none-any.whl", hash = "sha256:b00fd36ed0f9b2326b1488fd8fa31bf2ce64e68c4aa60a9ce857f10719571903"},
+    {file = "mkdocs_git_revision_date_localized_plugin-1.5.1.tar.gz", hash = "sha256:2b0239455cd84784dd87ac8dfc9253fe4b2dd35e102696f21b5d34e2175981c6"},
+]
+
+[package.dependencies]
+babel = ">=2.7.0"
+gitpython = ">=3.1.44"
+mkdocs = ">=1.0"
+tzdata = {version = ">=2023.3", markers = "sys_platform == \"win32\""}
 
 [[package]]
 name = "mkdocs-material"
@@ -1462,6 +1514,18 @@ files = [
 ]
 
 [[package]]
+name = "smmap"
+version = "5.0.3"
+description = "A pure Python implementation of a sliding window memory map manager"
+optional = false
+python-versions = ">=3.7"
+groups = ["dev"]
+files = [
+    {file = "smmap-5.0.3-py3-none-any.whl", hash = "sha256:c106e05d5a61449cf6ba9a1e650227ecfb141590d2a98412103ff35d89fc7b2f"},
+    {file = "smmap-5.0.3.tar.gz", hash = "sha256:4d9debb8b99007ae47165abc08670bd74cb74b5227dda7f643eccc4e9eb5642c"},
+]
+
+[[package]]
 name = "tomli"
 version = "2.4.1"
 description = "A lil' TOML parser"
@@ -1532,6 +1596,19 @@ files = [
 ]
 
 [[package]]
+name = "tzdata"
+version = "2026.1"
+description = "Provider of IANA time zone data"
+optional = false
+python-versions = ">=2"
+groups = ["dev"]
+markers = "sys_platform == \"win32\""
+files = [
+    {file = "tzdata-2026.1-py2.py3-none-any.whl", hash = "sha256:4b1d2be7ac37ceafd7327b961aa3a54e467efbdb563a23655fbfe0d39cfc42a9"},
+    {file = "tzdata-2026.1.tar.gz", hash = "sha256:67658a1903c75917309e753fdc349ac0efd8c27db7a0cb406a25be4840f87f98"},
+]
+
+[[package]]
 name = "urllib3"
 version = "2.6.3"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -1595,4 +1672,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10"
-content-hash = "3b1d12cda98040dd098eb7f53eb1eae5bd78a0e749fca84d8c1d08a2caf8087c"
+content-hash = "cd3dd8c073373a4d445ba7f725c1cd5d235470aa56a633e5fee94f8332d81d1f"

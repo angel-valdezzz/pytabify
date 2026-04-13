@@ -12,33 +12,51 @@ theme:
     logo: material/table-large
   features:
     - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
+    - navigation.path
     - navigation.top
+    - navigation.footer
     - navigation.tracking
     - search.highlight
     - search.suggest
+    - content.action.edit
+    - content.action.view
     - content.code.copy
     - content.tabs.link
     - toc.follow
   palette:
-    - scheme: default
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       primary: teal
       accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
 
 nav:
   - Inicio: index.md
   - Primeros pasos:
       - Instalacion: getting-started/installation.md
       - Inicio rapido: getting-started/quickstart.md
-  - Ejemplos:
+  - Uso:
       - Python: examples/python.md
       - Robot Framework: examples/robot-framework.md
   - Referencia:
-      - DataTableCreator: reference/creator.md
-      - DataTableSaver: reference/saver.md
+      - Crear tablas: reference/creator.md
+      - Guardar tablas: reference/saver.md
       - DataTable: reference/data-table.md
-      - Formatos soportados: reference/file-formats.md
-  - Troubleshooting:
+      - Formatos: reference/file-formats.md
+  - Soporte:
       - Errores comunes: troubleshooting/common-errors.md
   - Interna:
       - Arquitectura: internal/architecture.md
@@ -46,6 +64,11 @@ nav:
 
 plugins:
   - search
+  - git-revision-date-localized:
+      enable_creation_date: false
+      fallback_to_build_date: true
+      locale: es
+      type: datetime
 
 markdown_extensions:
   - admonition
@@ -57,6 +80,8 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
+      linenums: true
+      linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences:

@@ -2,6 +2,9 @@
 
 Estos flujos reflejan escenarios ya cubiertos por las pruebas del proyecto.
 
+[Inicio rapido](../getting-started/quickstart.md){ .md-button .md-button--primary }
+[Guardar tablas](../reference/saver.md){ .md-button }
+
 ## Convertir JSON a CSV
 
 ```python title="Round-trip simple desde archivo"
