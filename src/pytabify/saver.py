@@ -1,6 +1,7 @@
 from pytabify.bootstrap import build_save_table_use_case
 from pytabify.domain.data_table import DataTable
 
+
 class DataTableSaver:
     """Permite guardar un DataTable en diferentes formatos
 
@@ -14,17 +15,18 @@ class DataTableSaver:
     Notas:
     - Se puede especificar el encoding del archivo.
     """
+
     @staticmethod
-    def into_csv(datatable: DataTable, path: str, encoding: str = "utf-8"):
+    def into_csv(datatable: DataTable, path: str, encoding: str = "utf-8") -> None:
         """Guarda un DataTable en un archivo CSV."""
         build_save_table_use_case().execute(datatable, path, encoding=encoding)
 
     @staticmethod
-    def into_json(datatable: DataTable, path: str, encoding: str = "utf-8"):
+    def into_json(datatable: DataTable, path: str, encoding: str = "utf-8") -> None:
         """Guarda un DataTable en un archivo JSON."""
         build_save_table_use_case().execute(datatable, path, encoding=encoding)
 
     @staticmethod
-    def into_xlsx(datatable: DataTable, path: str, encoding: str = "utf-8"):
+    def into_xlsx(datatable: DataTable, path: str, encoding: str = "utf-8") -> None:
         """Guarda un DataTable en un archivo XLSX."""
         build_save_table_use_case().execute(datatable, path, encoding=encoding)

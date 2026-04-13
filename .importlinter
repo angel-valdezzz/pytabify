@@ -1,0 +1,37 @@
+[importlinter]
+root_package = pytabify
+
+[importlinter:contract:layered-architecture]
+name = Layered architecture
+type = layers
+layers =
+    pytabify.creator | pytabify.saver | pytabify.robot
+    pytabify.bootstrap
+    pytabify.adapters
+    pytabify.application
+    pytabify.domain
+
+[importlinter:contract:domain-isolation]
+name = Domain isolation
+type = forbidden
+source_modules =
+    pytabify.domain
+forbidden_modules =
+    pytabify.adapters
+    pytabify.application
+    pytabify.bootstrap
+    pytabify.creator
+    pytabify.robot
+    pytabify.saver
+
+[importlinter:contract:application-does-not-import-concrete-adapters]
+name = Application does not import concrete adapters
+type = forbidden
+source_modules =
+    pytabify.application
+forbidden_modules =
+    pytabify.adapters
+    pytabify.bootstrap
+    pytabify.creator
+    pytabify.robot
+    pytabify.saver

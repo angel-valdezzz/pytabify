@@ -7,7 +7,6 @@ from pytest_bdd import given, parsers, scenarios, then, when
 
 from pytabify import DataTableCreator, DataTableSaver
 
-
 scenarios("features/api_publica.feature")
 
 

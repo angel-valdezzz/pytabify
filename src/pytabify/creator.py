@@ -6,9 +6,10 @@ from pytabify.bootstrap import (
 )
 from pytabify.domain.data_table import DataTable
 
+
 class DataTableCreator:
     """Permite crear un DataTable a partir de un archivo o de una lista de diccionarios.
-    
+
     Ejemplo:
 
     ```python
@@ -21,11 +22,12 @@ class DataTableCreator:
     Notas:
     - El archivo debe tener una extension valida (.csv, .json, .xlsx).
     - La lista de diccionarios debe tener la misma estructura (lista de diccionarios).
-    - Para lectura de archivos XLSX se debe especificar el nombre de la hoja con el argumento sheet_name.
+    - Para lectura de archivos XLSX se debe especificar el nombre de la hoja
+      con el argumento sheet_name.
     """
 
     @staticmethod
-    def from_file(path: str, **kwargs) -> DataTable:
+    def from_file(path: str, **kwargs: Any) -> DataTable:
         """Crea un DataTable a partir de un archivo."""
         return build_create_table_from_file_use_case().execute(path, **kwargs)
 

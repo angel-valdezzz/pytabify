@@ -1,7 +1,6 @@
-import os
 import sys
+from pathlib import Path
 
-
-path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+path = str((Path(__file__).resolve().parent.parent / "src").resolve())
 if path not in sys.path:
     sys.path.append(path)

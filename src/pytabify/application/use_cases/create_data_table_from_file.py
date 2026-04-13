@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import Any
+
 from pytabify.application.ports.reader_resolver import ReaderResolver
 from pytabify.application.use_cases.create_data_table_from_records import CreateDataTableFromRecords
 from pytabify.domain.data_table import DataTable
@@ -12,7 +14,7 @@ class CreateDataTableFromFile:
         self._reader_resolver = reader_resolver
         self._records_use_case = CreateDataTableFromRecords()
 
-    def execute(self, path: str, **kwargs) -> DataTable:
+    def execute(self, path: str, **kwargs: Any) -> DataTable:
         reader = self._reader_resolver.resolve(path)
         records = reader.read(path, **kwargs)
         return self._records_use_case.execute(records)

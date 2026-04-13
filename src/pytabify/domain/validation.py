@@ -1,6 +1,6 @@
 from typing import Any
 
-from pytabify.utils.errors import DataTableValidationException
+from pytabify.domain.errors import DataTableValidationException
 
 
 def validate_records(data: Any) -> tuple[list[str], list[dict[str, Any]]]:
@@ -14,7 +14,7 @@ def validate_records(data: Any) -> tuple[list[str], list[dict[str, Any]]]:
     if not isinstance(data[0], dict):
         raise DataTableValidationException("Each row must be a dictionary.")
 
-    schema = [str(column_name) for column_name in data[0].keys()]
+    schema = [str(column_name) for column_name in data[0]]
     expected_columns = set(schema)
     normalized_rows: list[dict[str, Any]] = []
 
@@ -30,6 +30,8 @@ def validate_records(data: Any) -> tuple[list[str], list[dict[str, Any]]]:
                 f"Expected columns {schema}, got {list(normalized_record.keys())}."
             )
 
-        normalized_rows.append({column_name: normalized_record[column_name] for column_name in schema})
+        normalized_rows.append(
+            {column_name: normalized_record[column_name] for column_name in schema}
+        )
 
     return schema, normalized_rows

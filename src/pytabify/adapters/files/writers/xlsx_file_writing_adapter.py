@@ -1,12 +1,12 @@
 from openpyxl import Workbook
 
+from pytabify.adapters.files.errors import FileWritingException
 from pytabify.application.ports.table_writer import TableWriter
 from pytabify.domain.data_table import DataTable
-from pytabify.utils.errors import FileWritingException
 
 
 class XlsxFileWritingAdapter(TableWriter):
-    def write(self, datatable: DataTable, path: str, encoding: str = "utf-8"):
+    def write(self, datatable: DataTable, path: str, encoding: str = "utf-8") -> None:
         del encoding
 
         fieldnames = [header.name for header in datatable.headers()]

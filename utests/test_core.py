@@ -3,7 +3,7 @@ import pytest
 from pytabify import DataTable, DataTableCreator
 from pytabify.domain.dt_field import DTField
 from pytabify.domain.dt_row import DTRow
-from pytabify.utils.errors import DataTableValidationException
+from pytabify.domain.errors import DataTableValidationException
 
 
 @pytest.fixture
@@ -69,13 +69,24 @@ def test_assigning_existing_column_updates_value_without_duplicates(sample_datat
     sample_datatable[0]["age"] = 31
     assert sample_datatable[0].age.value == 31
     assert sample_datatable[1].age.value == 25
-    assert [header.name for header in sample_datatable.headers()] == ["name", "age", "active", "nickname"]
+    assert [header.name for header in sample_datatable.headers()] == [
+        "name",
+        "age",
+        "active",
+        "nickname",
+    ]
 
 
 def test_assigning_new_column_expands_schema_and_backfills_none(sample_datatable):
     sample_datatable[0]["country"] = "MX"
 
-    assert [header.name for header in sample_datatable.headers()] == ["name", "age", "active", "nickname", "country"]
+    assert [header.name for header in sample_datatable.headers()] == [
+        "name",
+        "age",
+        "active",
+        "nickname",
+        "country",
+    ]
     assert sample_datatable[0].country.value == "MX"
     assert sample_datatable[1].country.value is None
 

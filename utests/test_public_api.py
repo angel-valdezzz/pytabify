@@ -9,9 +9,6 @@ from pytabify import (
 from pytabify.domain.dt_field import DTField
 from pytabify.domain.dt_header import DTHeader
 from pytabify.domain.dt_row import DTRow
-from pytabify.io.file_formats import FileFormats
-from pytabify.io.strategies.reading import CSVFileReadingStrategy, JSONFileReadingStrategy, XLSXReadingStrategy
-from pytabify.io.strategies.saving import CsvFileSavingStrategy, JsonFileSavingStrategy, XlsxFileSavingStrategy
 
 
 def test_public_package_exports_expected_symbols():
@@ -34,10 +31,9 @@ def test_domain_types_are_constructible_from_public_contract():
     assert datatable.headers() == [header]
 
 
-def test_legacy_io_strategy_contracts_are_preserved():
-    assert FileFormats(".csv").get_strategy() is CSVFileReadingStrategy
-    assert FileFormats(".json").get_strategy() is JSONFileReadingStrategy
-    assert FileFormats(".xlsx").get_strategy() is XLSXReadingStrategy
-    assert callable(CsvFileSavingStrategy.save)
-    assert callable(JsonFileSavingStrategy.save)
-    assert callable(XlsxFileSavingStrategy.save)
+def test_public_api_stays_focused_on_use_cases_and_robot_surface():
+    assert callable(DataTableCreator.from_file)
+    assert callable(DataTableCreator.from_records)
+    assert callable(DataTableSaver.into_csv)
+    assert callable(DataTableSaver.into_json)
+    assert callable(DataTableSaver.into_xlsx)

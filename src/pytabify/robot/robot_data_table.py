@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterator, Sequence
+from typing import Any, overload
 
 from pytabify.domain.data_table import DataTable
 from pytabify.robot.robot_data_row import RobotDataRow
@@ -12,8 +13,15 @@ class RobotDataTable(Sequence[RobotDataRow]):
     def __init__(self, datatable: DataTable):
         self._datatable = datatable
 
-    def __getitem__(self, index: int) -> RobotDataRow:
-        return RobotDataRow(self._datatable[index])
+    @overload
+    def __getitem__(self, index: int) -> RobotDataRow: ...
+
+    @overload
+    def __getitem__(self, index: slice) -> Sequence[RobotDataRow]: ...
+
+    def __getitem__(self, index: int | slice) -> RobotDataRow | Sequence[RobotDataRow]:
+        rows = [RobotDataRow(row) for row in self._datatable]
+        return rows[index]
 
     def __len__(self) -> int:
         return len(self._datatable)
@@ -32,7 +40,7 @@ class RobotDataTable(Sequence[RobotDataRow]):
     def rows(self) -> list[RobotDataRow]:
         return list(self)
 
-    def to_dict(self) -> list[dict]:
+    def to_dict(self) -> list[dict[str, Any]]:
         return self._datatable.to_dict()
 
     @property

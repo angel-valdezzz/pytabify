@@ -1,10 +1,10 @@
 from pytabify import DataTableCreator
+from pytabify.domain.validation import validate_records
 from pytabify.robot import PyTabifyLibrary
-from pytabify.utils.validation import validate_data
 
 
-def test_legacy_validation_wrapper_points_to_domain_behavior():
-    schema, rows = validate_data([{"name": "Alice"}, {"name": "Bob"}])
+def test_domain_validation_module_stays_available():
+    schema, rows = validate_records([{"name": "Alice"}, {"name": "Bob"}])
     assert schema == ["name"]
     assert rows == [{"name": "Alice"}, {"name": "Bob"}]
 
