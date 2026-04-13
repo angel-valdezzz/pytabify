@@ -41,6 +41,43 @@ Convierte datos tabulares entre `CSV`, `JSON` y `XLSX` con una API Python corta 
 !!! tip "Enfoque actual del proyecto"
     `pytabify` hoy es una libreria Python con adaptador oficial para Robot Framework. Si en el futuro aparece un CLI propio, se puede documentar como una entrada adicional sin romper esta estructura.
 
+## Introduccion
+
+`pytabify` esta orientado a equipos tecnicos que necesitan cargar, validar, mutar y persistir datos tabulares sin construir conversiones manuales para cada formato.
+
+Va dirigido principalmente a:
+
+<div class="grid cards" markdown>
+
+-   __Desarrolladores Python__
+
+    Para scripts, fixtures, transformaciones simples y automatizacion de datos tabulares.
+
+-   __Equipos de QA__
+
+    Para pruebas automatizadas donde los datos viven en archivos o deben moverse entre formatos.
+
+-   __Usuarios de Robot Framework__
+
+    Para consumir tablas con acceso estable por fila, columna y adaptadores listos para keywords.
+
+</div>
+
+## Que problema resuelve
+
+Trabajar con datos tabulares pequenos o medianos suele degradarse rapido en codigo repetitivo:
+
+- leer `CSV`, `JSON` y `XLSX` con librerias distintas;
+- normalizar columnas y orden de esquema manualmente;
+- mutar filas sin romper consistencia entre registros;
+- exportar otra vez a un formato distinto;
+- repetir ese trabajo en Python y despues volver a modelarlo para Robot Framework.
+
+`pytabify` encapsula ese flujo en un contrato tabular unico. La herramienta carga los registros, mantiene un esquema estable, permite enriquecer la tabla sin perder sincronizacion entre filas y la vuelve a persistir en el formato de salida que necesites.
+
+!!! note "Cuando encaja bien"
+    Encaja mejor cuando el problema real es mover y ajustar datos tabulares con poco codigo, no construir un pipeline de datos complejo ni un motor ETL.
+
 ## Lo que puedes hacer
 
 === "Python"
@@ -56,7 +93,7 @@ Convierte datos tabulares entre `CSV`, `JSON` y `XLSX` con una API Python corta 
 
 === "Robot Framework"
 
-    ```robot title="Crear una tabla y guardar a JSON"
+    ```robotframework title="Crear una tabla y guardar a JSON"
     *** Settings ***
     Library    pytabify.robot.PyTabifyLibrary    WITH NAME    PyTabify
 
