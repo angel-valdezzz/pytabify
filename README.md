@@ -99,8 +99,6 @@ poetry run pytest
 poetry run mkdocs build --strict
 ```
 
-La documentación se publica desde `main` con GitHub Actions. Las versiones de PyPI se publican desde una *GitHub Release* cuyo tag coincida con `v` seguido de la versión de `pyproject.toml`, mediante Trusted Publishing.
-
 ## Licencia
 
 MIT. Consulta [LICENSE](LICENSE).
