@@ -46,13 +46,14 @@ class DataTable:
         return [row.to_dict() for row in self._rows]
 
     def set_value(self, row_index: int, column_name: str, value: Any) -> None:
+        row = self._rows[row_index]
         normalized_name = str(column_name)
         if normalized_name not in self._schema:
             self._schema.append(normalized_name)
+            for existing_row in self._rows:
+                existing_row._set_local_value(normalized_name, None)
 
-        self._sync_rows()
-        self._rows[row_index]._set_local_value(normalized_name, value)
-        self._sync_rows()
+        row._set_local_value(normalized_name, value)
 
     def _sync_rows(self) -> None:
         for row_index, row in enumerate(self._rows):

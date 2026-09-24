@@ -54,6 +54,30 @@ def test_from_file_csv_end_to_end(tmp_path):
     assert datatable.to_dict() == [{"name": "Alice", "age": "30"}, {"name": "Bob", "age": "25"}]
 
 
+@pytest.mark.parametrize(
+    ("contents", "error"),
+    [
+        ("name,name\nAlice,Bob\n", "duplicados"),
+        ("name, \nAlice,Bob\n", "vacío"),
+        ("name,age\nAlice\n", "línea 2"),
+        ("name,age\nAlice,30,extra\n", "línea 2"),
+    ],
+)
+def test_csv_rejects_invalid_headers_and_rows(tmp_path, contents, error):
+    input_file = tmp_path / "invalid.csv"
+    input_file.write_text(contents, encoding="utf-8")
+    with pytest.raises(FileReadingException, match=error):
+        DataTableCreator.from_file(str(input_file))
+
+
+def test_csv_preserves_quoted_newlines_and_empty_values(tmp_path):
+    input_file = tmp_path / "quoted.csv"
+    input_file.write_text('name,note\nAlice,"line one\nline two"\nBob,\n', encoding="utf-8")
+    table = DataTableCreator.from_file(str(input_file))
+    assert table[0].note == "line one\nline two"
+    assert table[1].note == ""
+
+
 def test_from_file_invalid_extension():
     with pytest.raises(FileExtensionException):
         DataTableCreator.from_file("archivo.txt")

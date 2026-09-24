@@ -2,7 +2,7 @@
 
 <div class="hero" markdown>
 
-Convierte datos tabulares entre `CSV`, `JSON` y `XLSX` con una API Python corta y un wrapper oficial para `Robot Framework`.
+Carga datos de prueba desde `CSV`, `JSON` y `XLSX`. Consulta cada celda por atributo o por nombre, actualiza la tabla y guarda el resultado desde Python o Robot Framework.
 
 [Instalacion](getting-started/installation.md){ .md-button .md-button--primary }
 [Inicio rapido](getting-started/quickstart.md){ .md-button }
@@ -38,8 +38,8 @@ Convierte datos tabulares entre `CSV`, `JSON` y `XLSX` con una API Python corta 
 
 </div>
 
-!!! tip "Enfoque actual del proyecto"
-    `pytabify` hoy es una libreria Python con adaptador oficial para Robot Framework. Si en el futuro aparece un CLI propio, se puede documentar como una entrada adicional sin romper esta estructura.
+!!! tip "Una fila, un valor"
+    `table[0].nombre` y `table[0]["nombre"]` devuelven el mismo valor. Si la columna se llama `to_dict` o contiene espacios, usa corchetes.
 
 ## Introduccion
 
@@ -65,7 +65,7 @@ Va dirigido principalmente a:
 
 ## Que problema resuelve
 
-Trabajar con datos tabulares pequenos o medianos suele degradarse rapido en codigo repetitivo:
+Cuando un caso de prueba usa una fila de datos, es útil conservar sus columnas en orden y acceder a ellas sin escribir un parser para cada formato:
 
 - leer `CSV`, `JSON` y `XLSX` con librerias distintas;
 - normalizar columnas y orden de esquema manualmente;
@@ -75,8 +75,8 @@ Trabajar con datos tabulares pequenos o medianos suele degradarse rapido en codi
 
 `pytabify` encapsula ese flujo en un contrato tabular unico. La herramienta carga los registros, mantiene un esquema estable, permite enriquecer la tabla sin perder sincronizacion entre filas y la vuelve a persistir en el formato de salida que necesites.
 
-!!! note "Cuando encaja bien"
-    Encaja mejor cuando el problema real es mover y ajustar datos tabulares con poco codigo, no construir un pipeline de datos complejo ni un motor ETL.
+!!! note "Alcance"
+    Cada columna representa un campo plano. La construcción de objetos de negocio anidados y el registro inmediato de folios generados pertenecen al proyecto que ejecuta las pruebas.
 
 ## Lo que puedes hacer
 
@@ -143,9 +143,6 @@ Trabajar con datos tabulares pequenos o medianos suele degradarse rapido en codi
     [Abrir arquitectura](internal/architecture.md)
 
 </div>
-
-??? info "Por que la referencia no va primero"
-    La API publica de `pytabify` es pequena. Para este tipo de herramienta, una referencia larga al inicio agrega friccion. El orden elegido privilegia uso real primero y detalle despues.
 
 ## Cobertura de formatos
 

@@ -6,7 +6,6 @@ from pytabify import (
     RobotDataRow,
     RobotDataTable,
 )
-from pytabify.domain.dt_field import DTField
 from pytabify.domain.dt_header import DTHeader
 from pytabify.domain.dt_row import DTRow
 
@@ -21,13 +20,11 @@ def test_public_package_exports_expected_symbols():
 
 
 def test_domain_types_are_constructible_from_public_contract():
-    field = DTField("name", "Alice", 0)
     row = DTRow({"name": "Alice"}, 0)
     datatable = DataTable.from_records([{"name": "Alice"}], ["name"])
     header = DTHeader("name", 0)
 
-    assert field.value == "Alice"
-    assert row.name.value == "Alice"
+    assert row.name == "Alice"
     assert datatable.headers() == [header]
 
 

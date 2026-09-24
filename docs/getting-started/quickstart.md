@@ -48,7 +48,7 @@ Este ejemplo toma un archivo `JSON`, lo carga en memoria, agrega una columna nue
         ${headers}=    PyTabify.Get Data Table Headers    ${table}
         Log To Console    ${headers}
         ${row}=    PyTabify.Get Data Table Row    ${table}    0
-        Log To Console    ${row.to_dict()}
+        Log To Console    ${row.name}
         ${table}=    PyTabify.Set Data Table Value    ${table}    0    country    MX
         PyTabify.Save Data Table To Csv    ${table}    people.csv
     ```
@@ -83,7 +83,7 @@ Este ejemplo toma un archivo `JSON`, lo carga en memoria, agrega una columna nue
 
         ```text title="stdout"
         ['name', 'age']
-        {'name': 'Alice', 'age': 30}
+        Alice
         ```
 
     === "Archivo generado"
@@ -94,8 +94,8 @@ Este ejemplo toma un archivo `JSON`, lo carga en memoria, agrega una columna nue
         Bob,25,
         ```
 
-!!! tip "Que demuestra este flujo"
-    El ejemplo muestra las tres operaciones centrales de `pytabify`: lectura, mutacion con esquema estable y persistencia en otro formato.
+!!! tip "Guardar es explícito"
+    La tabla cambia en memoria al asignar una celda. El archivo se crea al llamar a `into_csv` o `Save Data Table To Csv`.
 
 ??? info "Variantes del mismo flujo"
 
@@ -136,8 +136,8 @@ Este ejemplo toma un archivo `JSON`, lo carga en memoria, agrega una columna nue
 ```python title="Acceso por indice, atributo y llave" hl_lines="1 3 4"
 row = datatable[0]
 
-print(row.name.value)
-print(row["age"].value)
+print(row.name)
+print(row["age"])
 print(row.to_dict())
 ```
 
@@ -169,26 +169,6 @@ print(row.to_dict())
 
     ```python title="Guardar JSON con codificacion explicita" hl_lines="1"
     DataTableSaver.into_json(datatable, "people.json", encoding="utf-8")
-    ```
-
-## Resultado esperado
-
-=== "Input"
-
-    ```json title="people.json"
-    [
-      {"name": "Alice", "age": 30},
-      {"name": "Bob", "age": 25}
-    ]
-    ```
-
-=== "Output"
-
-    ```json title="people-enriched.json"
-    [
-      {"name": "Alice", "age": 30, "country": "MX"},
-      {"name": "Bob", "age": 25, "country": null}
-    ]
     ```
 
 ## Reglas practicas

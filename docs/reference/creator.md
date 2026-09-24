@@ -30,6 +30,8 @@ Fachada publica para construir un `DataTable` desde archivo o desde registros en
     datatable = DataTableCreator.from_file("people.csv", encoding="utf-8")
     ```
 
+    La primera fila define los encabezados. Deben ser únicos y no estar vacíos. Cada fila posterior necesita el mismo número de celdas; CSV conserva todos los valores como cadenas.
+
 === "XLSX"
 
     ```python title="Cargar XLSX" hl_lines="3"
@@ -109,6 +111,8 @@ datatable = DataTableCreator.from_records(
 -   __Normalizacion__
 
     Los nombres de columnas se normalizan a `str`.
+
+    Los nombres resultantes deben ser únicos y no vacíos.
 
 </div>
 
