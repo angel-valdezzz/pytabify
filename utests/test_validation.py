@@ -47,3 +47,19 @@ def test_validate_records_allows_empty_input():
     schema, rows = validate_records([])
     assert schema == []
     assert rows == []
+
+
+@pytest.mark.parametrize("name", ["", " "])
+def test_validate_records_rejects_blank_column_names(name):
+    with pytest.raises(DataTableValidationException, match="nonempty and unique"):
+        validate_records([{name: "value"}])
+
+
+def test_validate_records_rejects_names_colliding_after_normalization():
+    with pytest.raises(DataTableValidationException, match="nonempty and unique"):
+        validate_records([{1: "number", "1": "string"}])
+
+
+def test_validate_records_rejects_later_normalization_collision():
+    with pytest.raises(DataTableValidationException, match="duplicate column names"):
+        validate_records([{"1": "value", "2": "value"}, {1: "number", "1": "string"}])

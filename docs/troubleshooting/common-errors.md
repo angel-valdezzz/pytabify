@@ -2,6 +2,14 @@
 
 Esta pagina concentra las fallas mas probables al usar `pytabify` y la forma rapida de resolverlas.
 
+## CSV con encabezados o filas inválidas
+
+Si aparece `FileReadingException`, comprueba que la primera fila tenga nombres únicos y no vacíos. Cada fila posterior debe contener exactamente una celda por encabezado; el mensaje indica la línea que no coincide. Para escribir comas o saltos de línea dentro de una celda, usa las comillas propias de CSV.
+
+## Se perdió un folio después de fallar una prueba
+
+Cambiar `table[0].folio` solo modifica la tabla en memoria. Guardar un CSV requiere una llamada explícita a `DataTableSaver.into_csv` o a `Save Data Table To Csv`. Si el caso puede fallar antes de guardar, registra el folio en un almacenamiento de resultados en el momento en que lo obtienes; exporta el CSV por separado.
+
 ## Extension no soportada
 
 !!! failure "Sintoma"

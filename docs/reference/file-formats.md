@@ -32,7 +32,8 @@
 
 === "CSV"
 
-    - El reader devuelve valores como texto.
+    - La lectura devuelve valores como texto: `01000` sigue siendo `"01000"` y una celda vacía es `""`.
+    - No acepta encabezados vacíos o repetidos ni filas con distinto número de celdas.
     - Usa `encoding="utf-8"` salvo necesidad puntual.
     - Es el formato menos expresivo para `None` y booleanos.
 

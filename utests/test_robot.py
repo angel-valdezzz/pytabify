@@ -33,6 +33,7 @@ def test_get_data_table_row_returns_row_adapter_with_dual_access(library, record
     assert row["age"] == 30
     assert row.columns == ["name", "age"]
     assert list(row.keys()) == ["name", "age"]
+    assert list(row.items()) == [("name", "Alice"), ("age", 30)]
     assert row.values() == ["Alice", 30]
     assert row.to_dict() == {"name": "Alice", "age": 30}
 
@@ -51,6 +52,7 @@ def test_robot_table_adapter_supports_iteration_and_to_dict(library, records):
 
     assert [row.name for row in datatable] == ["Alice", "Bob"]
     assert datatable.to_dict() == records
+    assert [row.name for row in datatable[:1]] == ["Alice"]
 
 
 def test_set_data_table_value_updates_underlying_table(library, records):

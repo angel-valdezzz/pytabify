@@ -1,86 +1,56 @@
-# DataTable
+# DataTable y filas
 
-`DataTable` es el contrato tabular en memoria. Mantiene un esquema canonico estable y filas sincronizadas con ese esquema.
+Una `DataTable` contiene filas planas y una lista ordenada de columnas. La lectura de una celda entrega el **valor directamente**, sin un objeto intermedio.
 
-## Lectura
+```python
+from pytabify import DataTableCreator
 
-=== "Acceso por indice"
+table = DataTableCreator.from_records([
+    {"nombre": "Ana", "activo": True},
+    {"nombre": "Luis", "activo": False},
+])
+row = table[0]
 
-    ```python title="Obtener una fila"
-    row = datatable[0]
-    print(row.to_dict())
-    ```
+assert row.nombre == "Ana"
+assert row["nombre"] == "Ana"
+assert row.activo is True
+assert table.row(1).nombre == "Luis"
+```
 
-=== "Acceso por atributo"
+Usa corchetes para nombres con espacios o caracteres especiales y para columnas que coincidan con métodos de la fila, por ejemplo `row["to_dict"]`. Una columna ausente produce `KeyError` entre corchetes o `AttributeError` por atributo.
 
-    ```python title="Leer un campo"
-    print(datatable[0].name.value)
-    ```
+## Actualizar datos
 
-=== "Acceso por llave"
+```python
+row["nombre"] = "Andrea"
+row.folio = "F-001"
+assert table[1].folio is None
+assert table.column_names == ("nombre", "activo", "folio")
+```
 
-    ```python title="Leer un campo por columna"
-    print(datatable[0]["age"].value)
-    ```
+Actualizar una columna existente cambia solo esa celda. Agregar una columna la incorpora al esquema de todas las filas y completa las demás con `None`. Un índice de fila inexistente produce `IndexError` y no modifica el esquema.
 
-## Escritura
+## Recorrer y exportar
 
-=== "Actualizar columna existente"
+```python
+for row in table:
+    print(row.nombre, row.to_dict())
 
-    ```python title="Mutar una celda sin duplicar columnas"
-    datatable[0]["age"] = 31
-    ```
+assert list(table[0]) == ["nombre", "activo", "folio"]
+assert len(table) == 2
+print(table.to_dict())
+```
 
-=== "Agregar columna nueva"
-
-    ```python title="Expandir el esquema"
-    datatable[0]["country"] = "MX"
-    ```
-
-    ```python title="Efecto en toda la tabla"
-    print(datatable[0].country.value)  # MX
-    print(datatable[1].country.value)  # None
-    ```
-
-## Operaciones utiles
-
-| Operacion | Resultado |
+| Operación | Resultado |
 | --- | --- |
-| `len(datatable)` | total de filas |
-| `datatable.row(index)` | fila por indice |
-| `datatable.column_names` | tupla con nombres de columna |
-| `datatable.headers()` | headers con nombre e indice |
-| `datatable.to_dict()` | lista serializable de registros |
+| `table[index]` o `table.row(index)` | Fila en esa posición |
+| `row.campo` o `row["campo"]` | Valor de la celda |
+| `row.to_dict()` | Diccionario con las columnas en orden |
+| `table.column_names` | Tupla de nombres de columna |
+| `table.headers()` | Objetos con nombre e índice del encabezado |
+| `table.to_dict()` | Lista de diccionarios |
 
-## Ejemplos reales de uso
-
-=== "Inspeccionar encabezados"
-
-    ```python title="Ver schema actual"
-    print(datatable.column_names)
-    print([header.name for header in datatable.headers()])
-    ```
-
-=== "Mutar y serializar"
-
-    ```python title="Agregar una columna y exportar a dict"
-    datatable[0]["country"] = "MX"
-    print(datatable.to_dict())
-    ```
-
-!!! tip "Schema-first"
-    El esquema no depende de la fila que leas despues. Queda definido por la validacion inicial y por las expansiones controladas que hagas sobre la tabla.
-
-??? info "Lo que no debes asumir"
-    - No asumas que leer desde `CSV` preserva tipos nativos.
-    - No asumas que una columna ausente en una fila puede omitirse sin afectar el contrato.
-    - No asumas que una columna inexistente devolvera `None`; en lectura directa puede lanzar `KeyError` o `AttributeError`.
-
-## Buenas practicas de uso
-
-- Lee columnas existentes por atributo o llave segun el caso, pero no mezcles supuestos sobre columnas faltantes.
-- Cuando necesites una salida serializable, usa `to_dict()` en lugar de reconstruir registros manualmente.
-- Agrega columnas nuevas sobre la tabla ya creada para que el schema se propague correctamente.
+Los CSV se leen como texto: una celda vacía es `""` y `"01000"` conserva el cero. En `from_records`, JSON y XLSX, los valores conservan los tipos propios de cada origen. Pytabify no construye objetos anidados ni interpreta un encabezado como una ruta de atributos.
 
 [Crear tablas](creator.md){ .md-button .md-button--primary }
 [Guardar tablas](saver.md){ .md-button }

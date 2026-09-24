@@ -20,8 +20,9 @@ class RobotDataTable(Sequence[RobotDataRow]):
     def __getitem__(self, index: slice) -> Sequence[RobotDataRow]: ...
 
     def __getitem__(self, index: int | slice) -> RobotDataRow | Sequence[RobotDataRow]:
-        rows = [RobotDataRow(row) for row in self._datatable]
-        return rows[index]
+        if isinstance(index, slice):
+            return [RobotDataRow(row) for row in list(self._datatable)[index]]
+        return RobotDataRow(self._datatable[index])
 
     def __len__(self) -> int:
         return len(self._datatable)

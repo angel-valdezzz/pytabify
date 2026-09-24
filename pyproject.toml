@@ -1,13 +1,14 @@
 [project]
 name = "pytabify"
-version = "2.0.0"
+version = "3.0.0"
 description = "pytabify es una libreria ligera para cargar, validar y persistir datos tabulares desde CSV, JSON y Excel, con una API Python simple y un wrapper oficial para Robot Framework."
 authors = [
     { name = "Angel Gerardo Molina Valdez", email = "angelgerardomolinavaldez@gmail.com" },
 ]
 readme = "README.md"
 requires-python = ">=3.10"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 
 dependencies = ["openpyxl (>=3.1.5,<4.0.0)"]
 

@@ -15,6 +15,8 @@ def validate_records(data: Any) -> tuple[list[str], list[dict[str, Any]]]:
         raise DataTableValidationException("Each row must be a dictionary.")
 
     schema = [str(column_name) for column_name in data[0]]
+    if any(not name.strip() for name in schema) or len(set(schema)) != len(schema):
+        raise DataTableValidationException("Column names must be nonempty and unique.")
     expected_columns = set(schema)
     normalized_rows: list[dict[str, Any]] = []
 
@@ -23,6 +25,8 @@ def validate_records(data: Any) -> tuple[list[str], list[dict[str, Any]]]:
             raise DataTableValidationException(f"Row {row_index} must be a dictionary.")
 
         normalized_record = {str(column_name): value for column_name, value in record.items()}
+        if len(normalized_record) != len(record):
+            raise DataTableValidationException(f"Row {row_index} has duplicate column names.")
         current_columns = set(normalized_record.keys())
         if current_columns != expected_columns:
             raise DataTableValidationException(

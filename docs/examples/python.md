@@ -76,8 +76,8 @@ datatable = DataTableCreator.from_records(
     ]
 )
 
-assert datatable[0].active.value is True
-assert datatable[1].nickname.value is None
+assert datatable[0].active is True
+assert datatable[1].nickname is None
 ```
 
 !!! tip "Eleccion de formato"
