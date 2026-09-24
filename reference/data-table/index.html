@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#datatable" class="md-skip">
+        <a href="#datatable-y-filas" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -826,10 +826,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lectura" class="md-nav__link">
+  <a href="#actualizar-datos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lectura
+        Actualizar datos
       
     </span>
   </a>
@@ -837,43 +837,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#escritura" class="md-nav__link">
+  <a href="#recorrer-y-exportar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Escritura
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operaciones-utiles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Operaciones utiles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ejemplos-reales-de-uso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ejemplos reales de uso
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#buenas-practicas-de-uso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Buenas practicas de uso
+        Recorrer y exportar
       
     </span>
   </a>
@@ -1153,10 +1120,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lectura" class="md-nav__link">
+  <a href="#actualizar-datos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lectura
+        Actualizar datos
       
     </span>
   </a>
@@ -1164,43 +1131,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#escritura" class="md-nav__link">
+  <a href="#recorrer-y-exportar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Escritura
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operaciones-utiles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Operaciones utiles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ejemplos-reales-de-uso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ejemplos reales de uso
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#buenas-practicas-de-uso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Buenas practicas de uso
+        Recorrer y exportar
       
     </span>
   </a>
@@ -1275,106 +1209,72 @@
   
 
 
-<h1 id="datatable">DataTable<a class="headerlink" href="#datatable" title="Permanent link">&para;</a></h1>
-<p><code>DataTable</code> es el contrato tabular en memoria. Mantiene un esquema canonico estable y filas sincronizadas con ese esquema.</p>
-<h2 id="lectura">Lectura<a class="headerlink" href="#lectura" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Acceso por indice</label><label for="__tabbed_1_2">Acceso por atributo</label><label for="__tabbed_1_3">Acceso por llave</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">Obtener una fila</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">row</span> <span class="o">=</span> <span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos="2 "></span></a><span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+<h1 id="datatable-y-filas">DataTable y filas<a class="headerlink" href="#datatable-y-filas" title="Permanent link">&para;</a></h1>
+<p>Una <code>DataTable</code> contiene filas planas y una lista ordenada de columnas. La lectura de una celda entrega el <strong>valor directamente</strong>, sin un objeto intermedio.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kn">from</span><span class="w"> </span><span class="nn">pytabify</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataTableCreator</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos=" 2 "></span></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="n">table</span> <span class="o">=</span> <span class="n">DataTableCreator</span><span class="o">.</span><span class="n">from_records</span><span class="p">([</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos=" 4 "></span></a>    <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;activo&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><a href="#__codelineno-0-5"><span class="linenos" data-linenos=" 5 "></span></a>    <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Luis&quot;</span><span class="p">,</span> <span class="s2">&quot;activo&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><a href="#__codelineno-0-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="p">])</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><a href="#__codelineno-0-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="n">row</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><a href="#__codelineno-0-8"><span class="linenos" data-linenos=" 8 "></span></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><a href="#__codelineno-0-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="k">assert</span> <span class="n">row</span><span class="o">.</span><span class="n">nombre</span> <span class="o">==</span> <span class="s2">&quot;Ana&quot;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><a href="#__codelineno-0-10"><span class="linenos" data-linenos="10 "></span></a><span class="k">assert</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Ana&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><a href="#__codelineno-0-11"><span class="linenos" data-linenos="11 "></span></a><span class="k">assert</span> <span class="n">row</span><span class="o">.</span><span class="n">activo</span> <span class="ow">is</span> <span class="kc">True</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><a href="#__codelineno-0-12"><span class="linenos" data-linenos="12 "></span></a><span class="k">assert</span> <span class="n">table</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">nombre</span> <span class="o">==</span> <span class="s2">&quot;Luis&quot;</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">Leer un campo</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a><span class="nb">print</span><span class="p">(</span><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<p>Usa corchetes para nombres con espacios o caracteres especiales y para columnas que coincidan con métodos de la fila, por ejemplo <code>row["to_dict"]</code>. Una columna ausente produce <code>KeyError</code> entre corchetes o <code>AttributeError</code> por atributo.</p>
+<h2 id="actualizar-datos">Actualizar datos<a class="headerlink" href="#actualizar-datos" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">row</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Andrea&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">row</span><span class="o">.</span><span class="n">folio</span> <span class="o">=</span> <span class="s2">&quot;F-001&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><a href="#__codelineno-1-3"><span class="linenos" data-linenos="3 "></span></a><span class="k">assert</span> <span class="n">table</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">folio</span> <span class="ow">is</span> <span class="kc">None</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos="4 "></span></a><span class="k">assert</span> <span class="n">table</span><span class="o">.</span><span class="n">column_names</span> <span class="o">==</span> <span class="p">(</span><span class="s2">&quot;nombre&quot;</span><span class="p">,</span> <span class="s2">&quot;activo&quot;</span><span class="p">,</span> <span class="s2">&quot;folio&quot;</span><span class="p">)</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">Leer un campo por columna</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos="1 "></span></a><span class="nb">print</span><span class="p">(</span><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<p>Actualizar una columna existente cambia solo esa celda. Agregar una columna la incorpora al esquema de todas las filas y completa las demás con <code>None</code>. Un índice de fila inexistente produce <code>IndexError</code> y no modifica el esquema.</p>
+<h2 id="recorrer-y-exportar">Recorrer y exportar<a class="headerlink" href="#recorrer-y-exportar" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos="2 "></span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos="3 "></span></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos="4 "></span></a><span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">,</span> <span class="s2">&quot;activo&quot;</span><span class="p">,</span> <span class="s2">&quot;folio&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos="5 "></span></a><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><a href="#__codelineno-2-6"><span class="linenos" data-linenos="6 "></span></a><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 </code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="escritura">Escritura<a class="headerlink" href="#escritura" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Actualizar columna existente</label><label for="__tabbed_2_2">Agregar columna nueva</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">Mutar una celda sin duplicar columnas</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">31</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">Expandir el esquema</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><a href="#__codelineno-4-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MX&quot;</span>
-</code></pre></div>
-<div class="highlight"><span class="filename">Efecto en toda la tabla</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><a href="#__codelineno-5-1"><span class="linenos" data-linenos="1 "></span></a><span class="nb">print</span><span class="p">(</span><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># MX</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><a href="#__codelineno-5-2"><span class="linenos" data-linenos="2 "></span></a><span class="nb">print</span><span class="p">(</span><span class="n">datatable</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># None</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="operaciones-utiles">Operaciones utiles<a class="headerlink" href="#operaciones-utiles" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Operacion</th>
+<th>Operación</th>
 <th>Resultado</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>len(datatable)</code></td>
-<td>total de filas</td>
+<td><code>table[index]</code> o <code>table.row(index)</code></td>
+<td>Fila en esa posición</td>
 </tr>
 <tr>
-<td><code>datatable.row(index)</code></td>
-<td>fila por indice</td>
+<td><code>row.campo</code> o <code>row["campo"]</code></td>
+<td>Valor de la celda</td>
 </tr>
 <tr>
-<td><code>datatable.column_names</code></td>
-<td>tupla con nombres de columna</td>
+<td><code>row.to_dict()</code></td>
+<td>Diccionario con las columnas en orden</td>
 </tr>
 <tr>
-<td><code>datatable.headers()</code></td>
-<td>headers con nombre e indice</td>
+<td><code>table.column_names</code></td>
+<td>Tupla de nombres de columna</td>
 </tr>
 <tr>
-<td><code>datatable.to_dict()</code></td>
-<td>lista serializable de registros</td>
+<td><code>table.headers()</code></td>
+<td>Objetos con nombre e índice del encabezado</td>
+</tr>
+<tr>
+<td><code>table.to_dict()</code></td>
+<td>Lista de diccionarios</td>
 </tr>
 </tbody>
 </table>
-<h2 id="ejemplos-reales-de-uso">Ejemplos reales de uso<a class="headerlink" href="#ejemplos-reales-de-uso" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Inspeccionar encabezados</label><label for="__tabbed_3_2">Mutar y serializar</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">Ver schema actual</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><a href="#__codelineno-6-1"><span class="linenos" data-linenos="1 "></span></a><span class="nb">print</span><span class="p">(</span><span class="n">datatable</span><span class="o">.</span><span class="n">column_names</span><span class="p">)</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><a href="#__codelineno-6-2"><span class="linenos" data-linenos="2 "></span></a><span class="nb">print</span><span class="p">([</span><span class="n">header</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">datatable</span><span class="o">.</span><span class="n">headers</span><span class="p">()])</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">Agregar una columna y exportar a dict</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><a href="#__codelineno-7-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MX&quot;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><a href="#__codelineno-7-2"><span class="linenos" data-linenos="2 "></span></a><span class="nb">print</span><span class="p">(</span><span class="n">datatable</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Schema-first</p>
-<p>El esquema no depende de la fila que leas despues. Queda definido por la validacion inicial y por las expansiones controladas que hagas sobre la tabla.</p>
-</div>
-<details class="info">
-<summary>Lo que no debes asumir</summary>
-<ul>
-<li>No asumas que leer desde <code>CSV</code> preserva tipos nativos.</li>
-<li>No asumas que una columna ausente en una fila puede omitirse sin afectar el contrato.</li>
-<li>No asumas que una columna inexistente devolvera <code>None</code>; en lectura directa puede lanzar <code>KeyError</code> o <code>AttributeError</code>.</li>
-</ul>
-</details>
-<h2 id="buenas-practicas-de-uso">Buenas practicas de uso<a class="headerlink" href="#buenas-practicas-de-uso" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Lee columnas existentes por atributo o llave segun el caso, pero no mezcles supuestos sobre columnas faltantes.</li>
-<li>Cuando necesites una salida serializable, usa <code>to_dict()</code> en lugar de reconstruir registros manualmente.</li>
-<li>Agrega columnas nuevas sobre la tabla ya creada para que el schema se propague correctamente.</li>
-</ul>
+<p>Los CSV se leen como texto: una celda vacía es <code>""</code> y <code>"01000"</code> conserva el cero. En <code>from_records</code>, JSON y XLSX, los valores conservan los tipos propios de cada origen. Pytabify no construye objetos anidados ni interpreta un encabezado como una ruta de atributos.</p>
 <p><a class="md-button md-button--primary" href="../creator/">Crear tablas</a>
 <a class="md-button" href="../saver/">Guardar tablas</a></p>
 
@@ -1397,7 +1297,7 @@
     <span class="md-icon" title="Última actualización">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="13 de abril de 2026 04:44:05 UTC">13 de abril de 2026 04:44:05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="24 de septiembre de 2026 21:33:27 UTC">24 de septiembre de 2026 21:33:27</span>
   </span>
 
     
