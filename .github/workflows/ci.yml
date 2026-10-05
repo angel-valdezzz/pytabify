@@ -51,7 +51,16 @@ jobs:
         run: poetry run pytest
 
       - name: Build documentation strictly
-        run: poetry run mkdocs build --strict
+        run: poetry run python scripts/build_docs.py
+
+      - name: Set up Node for Libdoc UI verification
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Verify native bilingual Libdoc menu
+        run: |
+          npm install --prefix build/libdoc-ui jsdom@26.1.0 --no-audit --no-fund
+          NODE_PATH="$PWD/build/libdoc-ui/node_modules" node scripts/verify_libdoc_ui.cjs keywords/index.html
 
   deploy-docs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -78,4 +87,6 @@ jobs:
         run: poetry install --no-interaction
 
       - name: Deploy documentation to GitHub Pages
-        run: poetry run mkdocs gh-deploy --force
+        run: |
+          poetry run python scripts/build_docs.py
+          poetry run ghp-import -n -p -f site

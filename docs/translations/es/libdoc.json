@@ -1,0 +1,42 @@
+{
+  "introduction": {
+    "source_sha256": "191ece1795245505081743f48ede901c685ad3edfccf123b1dd67812d2a891a8",
+    "text": "Wrapper oficial para usar pytabify desde Robot Framework."
+  },
+  "keyword:Create Data Table From File": {
+    "source_sha256": "1424842565bfddaa7d9b4757a5c18d028f300b785e2fab2b80a58875fbd4e10e",
+    "text": "Carga CSV, JSON o XLSX y devuelve un RobotDataTable.\n\n``path`` selecciona el archivo. ``sheet_name`` es obligatorio para XLSX; ``encoding`` es utf-8 por defecto y aplica a CSV/JSON. Las celdas CSV conservan texto, incluidas celdas vacías y ceros iniciales. Los errores de archivo o esquema se propagan.\n\n| ${table}= | Create Data Table From File | people.xlsx | sheet_name=People |"
+  },
+  "keyword:Create Data Table From Records": {
+    "source_sha256": "05e53946982e639a42849effee39f3f068e73d708ad2f8f06442a9a0a71796ca",
+    "text": "Crea un RobotDataTable desde una lista de diccionarios con las mismas columnas.\n\nEl orden sigue al primer registro; los valores conservan sus tipos Python. Los nombres de columna se normalizan a texto y deben ser únicos y no vacíos. Los esquemas inconsistentes producen un error. No escribe archivos."
+  },
+  "keyword:Get Data Table Headers": {
+    "source_sha256": "ba2ef33cbf8e691d7231de34f06df178154a453cc9eefb36a7eed5bfeb1eca5a",
+    "text": "Devuelve los nombres de columna como una lista ordenada de cadenas.\n\nAcepta RobotDataTable o DataTable nativo. No modifica la tabla."
+  },
+  "keyword:Get Data Table Row": {
+    "source_sha256": "c21c462897a34ff4dc06544650130403fe7730d9de639b02f9df7ef7af296b13",
+    "text": "Devuelve un RobotDataRow en el índice basado en cero.\n\nAcepta RobotDataTable o DataTable nativo. Accede directamente a las celdas por atributo o clave: ${row.name} o ${row}[name]. Un índice inexistente produce IndexError."
+  },
+  "keyword:Get Data Table Rows": {
+    "source_sha256": "78cd08bf56f7ee1d14797239813e99022e72970bac310e5e85f39eaabeffc248",
+    "text": "Devuelve todas las filas como una lista de objetos RobotDataRow en orden.\n\nAcepta RobotDataTable o DataTable nativo. Las filas referencian la tabla original; modificar una fila cambia sus datos en memoria, no un archivo."
+  },
+  "keyword:Save Data Table To Csv": {
+    "source_sha256": "ad06d74adb1e6f10877ccaaa3e38d5b074917d370e28bd8822c30a7ab2047dba",
+    "text": "Guarda un RobotDataTable o DataTable nativo como CSV en path.\n\n``encoding`` es utf-8 por defecto. Escribe el estado actual de la tabla con encabezados ordenados. CSV no conserva tipos nativos como JSON o XLSX. No devuelve un valor; los errores de escritura se propagan."
+  },
+  "keyword:Save Data Table To Json": {
+    "source_sha256": "4cd2d40d49bcc2e9359472b2d73ec2e2613bff211fd61f1f6dcc64e37b333bb2",
+    "text": "Guarda un RobotDataTable o DataTable nativo como una lista JSON de registros en path.\n\n``encoding`` es utf-8 por defecto. JSON conserva tipos compatibles como números, booleanos y null. No devuelve un valor; los errores de serialización y escritura se propagan."
+  },
+  "keyword:Save Data Table To Xlsx": {
+    "source_sha256": "0afd788f00032a222760a7703e7001d88948a623b009ad25dec9dfd1b2fe86c0",
+    "text": "Guarda un RobotDataTable o DataTable nativo como un libro XLSX en path.\n\nLos encabezados ocupan la primera fila y los registros siguen el orden del esquema. ``encoding`` se acepta por compatibilidad de API y no controla la codificación XLSX. No devuelve un valor; los errores de escritura se propagan."
+  },
+  "keyword:Set Data Table Value": {
+    "source_sha256": "953426229082b721caab5caa7988027d6836c8ef2b18df7973448b756cb65beb",
+    "text": "Actualiza una celda y devuelve un RobotDataTable que envuelve la misma tabla nativa.\n\n``row_index`` se basa en cero; ``column_name`` identifica la columna. Una columna nueva amplía todo el esquema y rellena las demás filas con None. Un índice inválido produce IndexError sin ampliar el esquema. Guardar sigue siendo explícito."
+  }
+}

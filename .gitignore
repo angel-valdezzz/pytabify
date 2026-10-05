@@ -275,3 +275,15 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pythonvanilla,windows,linux,macos
+build/
+site/
+docs/en/assets/
+docs/es/assets/
+docs/en/keywords/
+docs/es/keywords/
+docs/en/reference/keywords.html
+docs/es/reference/keywords.html
+docs/en/demo/
+docs/es/demo/
+docs/en/examples/*.html
+docs/es/examples/*.html
