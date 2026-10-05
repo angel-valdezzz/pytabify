@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> None:
     generate(
-        "pytabify.robot.PyTabifyLibrary",
+        "Pytabify",
         ROOT,
         "keywords/index.html",
         "https://angel-valdezzz.github.io/pytabify/",

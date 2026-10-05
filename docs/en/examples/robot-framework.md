@@ -9,7 +9,7 @@
 
 ```robotframework title="Import the library"
 *** Settings ***
-Library    pytabify.robot.PyTabifyLibrary    WITH NAME    PyTabify
+Library    Pytabify
 ```
 
 ## Create a table from records
@@ -20,8 +20,8 @@ Crear tabla desde registros
     ${records}=    Create List
     ...    ${{ {"name": "Alice", "age": 30} }}
     ...    ${{ {"name": "Bob", "age": 25} }}
-    ${table}=    PyTabify.Create Data Table From Records    ${records}
-    ${headers}=    PyTabify.Get Data Table Headers    ${table}
+    ${table}=    Pytabify.Create Data Table From Records    ${records}
+    ${headers}=    Pytabify.Get Data Table Headers    ${table}
     Should Be Equal    ${headers}    ${["name", "age"]}
 ```
 
@@ -32,8 +32,8 @@ Crear tabla desde registros
 Inspeccionar fila
     ${records}=    Create List
     ...    ${{ {"name": "Alice", "age": 30} }}
-    ${table}=    PyTabify.Create Data Table From Records    ${records}
-    ${row}=    PyTabify.Get Data Table Row    ${table}    0
+    ${table}=    Pytabify.Create Data Table From Records    ${records}
+    ${row}=    Pytabify.Get Data Table Row    ${table}    0
     Should Be Equal As Strings    ${row.name}    Alice
     Should Be Equal As Integers    ${row}[age]    30
 ```
@@ -46,9 +46,9 @@ Mutar tabla y guardar
     ${records}=    Create List
     ...    ${{ {"name": "Alice", "age": 30} }}
     ...    ${{ {"name": "Bob", "age": 25} }}
-    ${table}=    PyTabify.Create Data Table From Records    ${records}
-    ${table}=    PyTabify.Set Data Table Value    ${table}    0    country    MX
-    PyTabify.Save Data Table To Json    ${table}    people.json
+    ${table}=    Pytabify.Create Data Table From Records    ${records}
+    ${table}=    Pytabify.Set Data Table Value    ${table}    0    country    MX
+    Pytabify.Save Data Table To Json    ${table}    people.json
 ```
 
 === "Robot interface"
@@ -68,6 +68,6 @@ Mutar tabla y guardar
 ??? info "Read a JSON file"
 
     ```robotframework title="Create a table from a file"
-    ${table}=    PyTabify.Create Data Table From File    people.json
-    ${headers}=    PyTabify.Get Data Table Headers    ${table}
+    ${table}=    Pytabify.Create Data Table From File    people.json
+    ${headers}=    Pytabify.Get Data Table Headers    ${table}
     ```

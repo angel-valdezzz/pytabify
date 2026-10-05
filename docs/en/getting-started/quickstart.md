@@ -40,17 +40,17 @@ Load a JSON file, add a column in memory and export CSV. Python and Robot Framew
 
     ```robotframework title="quickstart.robot" hl_lines="6 10 11"
     *** Settings ***
-    Library    pytabify.robot.PyTabifyLibrary    WITH NAME    PyTabify
+    Library    Pytabify
 
     *** Test Cases ***
     Convertir json a csv
-        ${table}=    PyTabify.Create Data Table From File    people.json
-        ${headers}=    PyTabify.Get Data Table Headers    ${table}
+        ${table}=    Pytabify.Create Data Table From File    people.json
+        ${headers}=    Pytabify.Get Data Table Headers    ${table}
         Log To Console    ${headers}
-        ${row}=    PyTabify.Get Data Table Row    ${table}    0
+        ${row}=    Pytabify.Get Data Table Row    ${table}    0
         Log To Console    ${row.name}
-        ${table}=    PyTabify.Set Data Table Value    ${table}    0    country    MX
-        PyTabify.Save Data Table To Csv    ${table}    people.csv
+        ${table}=    Pytabify.Set Data Table Value    ${table}    0    country    MX
+        Pytabify.Save Data Table To Csv    ${table}    people.csv
     ```
 
     ```bash title="Execution"

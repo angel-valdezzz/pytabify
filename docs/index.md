@@ -95,16 +95,16 @@ Cuando un caso de prueba usa una fila de datos, es útil conservar sus columnas 
 
     ```robotframework title="Crear una tabla y guardar a JSON"
     *** Settings ***
-    Library    pytabify.robot.PyTabifyLibrary    WITH NAME    PyTabify
+    Library    Pytabify
 
     *** Test Cases ***
     Guardar tabla enriquecida
         ${records}=    Create List
         ...    ${{ {"name": "Alice", "age": 30} }}
         ...    ${{ {"name": "Bob", "age": 25} }}
-        ${table}=    PyTabify.Create Data Table From Records    ${records}
-        ${table}=    PyTabify.Set Data Table Value    ${table}    0    country    MX
-        PyTabify.Save Data Table To Json    ${table}    people.json
+        ${table}=    Pytabify.Create Data Table From Records    ${records}
+        ${table}=    Pytabify.Set Data Table Value    ${table}    0    country    MX
+        Pytabify.Save Data Table To Json    ${table}    people.json
     ```
 
 ## Flujo recomendado

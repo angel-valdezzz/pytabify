@@ -10,6 +10,7 @@ theme:
   name: material
   language: en
   icon:
+    repo: fontawesome/brands/github
     logo: material/table-large
   features:
     - navigation.instant
