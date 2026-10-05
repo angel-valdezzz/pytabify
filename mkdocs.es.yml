@@ -1,0 +1,49 @@
+INHERIT: mkdocs.base.yml
+site_description: Documentación técnica de pytabify para Python y Robot Framework
+site_url: https://angel-valdezzz.github.io/pytabify/es/
+docs_dir: docs/es
+site_dir: build/site-es
+edit_uri: edit/main/docs/es/
+theme:
+  language: es
+  palette:
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    primary: teal
+    accent: cyan
+    toggle:
+      icon: material/weather-night
+      name: Modo oscuro
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    primary: teal
+    accent: cyan
+    toggle:
+      icon: material/weather-sunny
+      name: Modo claro
+plugins:
+  - search:
+      lang: es
+  - git-revision-date-localized:
+      enable_creation_date: false
+      fallback_to_build_date: true
+      locale: es
+      type: datetime
+nav:
+  - Inicio: index.md
+  - Manual de usuario:
+      - Instalación: getting-started/installation.md
+      - Uso rápido: getting-started/quickstart.md
+      - Python: examples/python.md
+      - Robot Framework: examples/robot-framework.md
+      - Solución de problemas: troubleshooting/common-errors.md
+  - Referencia de keywords: keywords/index.html
+  - Referencia de API:
+      - Crear tablas: reference/creator.md
+      - Guardar tablas: reference/saver.md
+      - DataTable: reference/data-table.md
+      - Formatos: reference/file-formats.md
+  - Desarrollo:
+      - Arquitectura: internal/architecture.md
+      - Extender formatos: internal/extending-readers-writers.md
+  - Ejemplos visuales: examples/visual.md
