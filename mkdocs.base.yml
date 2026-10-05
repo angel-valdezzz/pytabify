@@ -1,10 +1,11 @@
-site_name: pytabify
+site_name: Pytabify
 site_description: Documentacion tecnica de pytabify para Python y Robot Framework.
 site_url: https://angel-valdezzz.github.io/pytabify/
 repo_url: https://github.com/angel-valdezzz/pytabify
-repo_name: angel-valdezzz/pytabify
+repo_name: Pytabify
 
 theme:
+  favicon: assets/favicon.svg
   font: false
   custom_dir: overrides
   name: material
@@ -30,15 +31,15 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: teal
-      accent: cyan
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: Cambiar a modo oscuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: teal
-      accent: cyan
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Cambiar a modo claro
@@ -79,6 +80,7 @@ markdown_extensions:
 extra_css:
   - assets/stylesheets/standard.css
   - assets/stylesheets/extra.css
+  - assets/stylesheets/visual.css
 
 extra_javascript:
   - https://unpkg.com/mermaid@11/dist/mermaid.min.js
