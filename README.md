@@ -44,15 +44,15 @@ Read files with `DataTableCreator.from_file("cases.csv")`. For XLSX provide `she
 
 ```robotframework
 *** Settings ***
-Library    pytabify.robot.PyTabifyLibrary    WITH NAME    PyTabify
+Library    Pytabify
 
 *** Test Cases ***
 Read a case
-    ${table}=    PyTabify.Create Data Table From File    cases.json
-    ${row}=    PyTabify.Get Data Table Row    ${table}    0
+    ${table}=    Pytabify.Create Data Table From File    cases.json
+    ${row}=    Pytabify.Get Data Table Row    ${table}    0
     Should Be Equal    ${row.name}    Ana
-    ${table}=    PyTabify.Set Data Table Value    ${table}    0    folio    F-002
-    PyTabify.Save Data Table To Json    ${table}    updated.json
+    ${table}=    Pytabify.Set Data Table Value    ${table}    0    folio    F-002
+    Pytabify.Save Data Table To Json    ${table}    updated.json
 ```
 
 Run the Python example first to create cases.json. Robot expressions can use `$row.name` directly; no `.value` property is required.
