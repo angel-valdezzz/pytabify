@@ -1,5 +1,10 @@
 # pytabify
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-wordmark-dark.svg">
+  <img src="docs/assets/logo-wordmark.svg" alt="Pytabify" width="380">
+</picture>
+
 **Tabular test data for Python and Robot Framework.**
 
 **English** · [Español](README.es.md)

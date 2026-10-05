@@ -1,6 +1,11 @@
 # pytabify
 
 <div class="hero" markdown>
+<div class="project-brand">
+<img class="project-brand-light" src="assets/logo-wordmark.svg" alt="Pytabify">
+<img class="project-brand-dark" src="assets/logo-wordmark-dark.svg" alt="Pytabify">
+</div>
+
 
 Carga datos de prueba desde `CSV`, `JSON` y `XLSX`. Consulta cada celda por atributo o por nombre, actualiza la tabla y guarda el resultado desde Python o Robot Framework.
 

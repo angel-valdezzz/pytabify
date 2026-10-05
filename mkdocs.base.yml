@@ -5,6 +5,7 @@ repo_url: https://github.com/angel-valdezzz/pytabify
 repo_name: Pytabify
 
 theme:
+  logo: assets/logo.svg
   favicon: assets/favicon.svg
   font: false
   custom_dir: overrides
@@ -12,8 +13,7 @@ theme:
   language: en
   icon:
     repo: fontawesome/brands/github
-    logo: material/table-large
-  features:
+    features:
     - navigation.instant
     - navigation.instant.progress
     - navigation.tabs
