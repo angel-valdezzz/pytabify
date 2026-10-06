@@ -8,7 +8,7 @@ theme:
   logo: assets/logo.svg
   favicon: assets/favicon.svg
   font: false
-  custom_dir: overrides
+  custom_dir: docs/overrides
   name: material
   language: en
   icon:
@@ -83,6 +83,7 @@ extra_css:
   - assets/stylesheets/visual.css
 
 extra_javascript:
+  - assets/keyword-links.js
   - https://unpkg.com/mermaid@11/dist/mermaid.min.js
   - assets/javascripts/mermaid.js
 

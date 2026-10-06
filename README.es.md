@@ -83,7 +83,7 @@ poetry run ruff format --check .
 poetry run mypy src/pytabify
 poetry run lint-imports
 poetry run pytest
-poetry run python scripts/build_docs.py
+poetry run python docs/scripts/build_docs.py
 poetry build
 ```
 

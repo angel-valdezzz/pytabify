@@ -47,7 +47,7 @@ No configuration file, environment variables or extra bootstrap is required. Pre
 | `poetry install` | Prepare development dependencies |
 | `python -c "from pytabify import DataTableCreator; print('ok')"` | Verify minimal installation |
 | `poetry run mkdocs serve` | Preview the English source pages |
-| `poetry run python scripts/build_docs.py` | Validate the complete bilingual site and Libdoc |
+| `poetry run python docs/scripts/build_docs.py` | Validate the complete bilingual site and Libdoc |
 
 ## Minimal verification
 
@@ -67,7 +67,7 @@ No configuration file, environment variables or extra bootstrap is required. Pre
     poetry run mkdocs build
     ```
 
-Use `mkdocs serve` to iterate on one language. Build the complete site with `scripts/build_docs.py` and serve `site/` with `python -m http.server 8000 --directory site` to preview both languages.
+Use `mkdocs serve` to iterate on one language. Build the complete site with `docs/scripts/build_docs.py` and serve `site/` with `python -m http.server 8000 --directory site` to preview both languages.
 
 ## Execution examples
 
