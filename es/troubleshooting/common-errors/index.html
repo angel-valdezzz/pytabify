@@ -1347,8 +1347,8 @@ Usa una extension soportada y consistente con el formato real del archivo.</p>
 <p><strong>Causa</strong><br />
 El reader de Excel exige <code>sheet_name</code>.</p>
 <p><strong>Solucion</strong>  </p>
-<div class="highlight"><span class="filename">Lectura correcta de XLSX</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">datatable</span> <span class="o">=</span> <span class="n">DataTableCreator</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;people.xlsx&quot;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;People&quot;</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><span class="filename">Lectura correcta de XLSX</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="hll"><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">datatable</span> <span class="o">=</span> <span class="n">DataTableCreator</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;people.xlsx&quot;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;People&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="hoja-inexistente-en-xlsx">Hoja inexistente en XLSX<a class="headerlink" href="#hoja-inexistente-en-xlsx" title="Permanent link">&para;</a></h2>
 <div class="admonition failure">
 <p class="admonition-title">Sintoma</p>
@@ -1369,16 +1369,16 @@ Al menos una fila no coincide con el esquema del primer registro.</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">Todas las filas comparten schema</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a><span class="p">[</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos="2 "></span></a>    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><a href="#__codelineno-1-3"><span class="linenos" data-linenos="3 "></span></a>    <span class="p">{</span><span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">},</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos="4 "></span></a><span class="p">]</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="hll"><a href="#__codelineno-1-2"><span class="linenos" data-linenos="2 "></span></a>    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
+</span><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="hll"><a href="#__codelineno-1-3"><span class="linenos" data-linenos="3 "></span></a>    <span class="p">{</span><span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">},</span>
+</span><a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos="4 "></span></a><span class="p">]</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">Schema inconsistente</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos="1 "></span></a><span class="p">[</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos="2 "></span></a>    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos="3 "></span></a>    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;MX&quot;</span><span class="p">},</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos="4 "></span></a><span class="p">]</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="hll"><a href="#__codelineno-2-3"><span class="linenos" data-linenos="3 "></span></a>    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;MX&quot;</span><span class="p">},</span>
+</span><a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos="4 "></span></a><span class="p">]</span>
 </code></pre></div>
 </div>
 </div>
@@ -1412,8 +1412,8 @@ Si el flujo depende de tipos, usa <code>JSON</code>, <code>XLSX</code> o crea la
 La columna no existe en el esquema actual.</p>
 <p><strong>Solucion</strong><br />
 Agrega la columna primero con una mutacion valida:</p>
-<div class="highlight"><span class="filename">Expandir el esquema</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MX&quot;</span>
-</code></pre></div>
+<div class="highlight"><span class="filename">Expandir el esquema</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="hll"><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MX&quot;</span>
+</span></code></pre></div>
 <details class="info">
 <summary>Regla util</summary>
 <p>Si agregas una columna en una fila, <code>pytabify</code> la propaga al resto con <code>None</code>. Ese es el camino esperado para enriquecer una tabla ya valida.</p>
@@ -1438,7 +1438,7 @@ Agrega la columna primero con una mutacion valida:</p>
     <span class="md-icon" title="Última actualización">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="5 de octubre de 2026 16:45:53 UTC">5 de octubre de 2026 16:45:53</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="6 de octubre de 2026 16:46:36 UTC">6 de octubre de 2026 16:46:36</span>
   </span>
 
     
