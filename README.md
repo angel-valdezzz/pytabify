@@ -11,6 +11,13 @@
 
 [User guide](https://angel-valdezzz.github.io/pytabify/) · [Keyword reference](https://angel-valdezzz.github.io/pytabify/keywords/) · [PyPI](https://pypi.org/project/pytabify/) · [Visual examples](https://angel-valdezzz.github.io/pytabify/examples/visual/)
 
+
+[![PyPI](https://img.shields.io/pypi/v/pytabify?logo=pypi)](https://pypi.org/project/pytabify/)
+![Python](https://img.shields.io/pypi/pyversions/pytabify?logo=python)
+![Robot Framework](https://img.shields.io/badge/Robot_Framework-compatible-00A6A6?logo=robotframework)
+[![License](https://img.shields.io/github/license/angel-valdezzz/pytabify)](LICENSE)
+[![CI](https://github.com/angel-valdezzz/pytabify/actions/workflows/ci.yml/badge.svg)](https://github.com/angel-valdezzz/pytabify/actions/workflows/ci.yml)
+
 ## Features
 
 - Read and save CSV, JSON and XLSX through one API.
