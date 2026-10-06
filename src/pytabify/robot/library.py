@@ -11,7 +11,23 @@ from pytabify.robot.robot_data_table import RobotDataTable
 
 
 class PyTabifyLibrary:
-    """Official wrapper for using pytabify from Robot Framework."""
+    """Load, inspect, edit and save tabular test data from Robot Framework.
+
+    Supports CSV, JSON and XLSX. Keywords return table and row objects so tests
+    can access cells by column name. Changes stay in memory until a save keyword
+    is called; loading data does not execute test cases automatically.
+
+    = Importing =
+    | Library | Pytabify |
+
+    = Example =
+    | ${table}= | Create Data Table From File | people.csv |
+    | ${row}= | Get Data Table Row | ${table} | 0 |
+    | Log | ${row.name} |
+
+    For XLSX, supply ``sheet_name``. CSV preserves string values, including leading
+    zeros. See `Create Data Table From File` and the save keywords for format options.
+    """
 
     def __init__(self):
         self._create_from_file = build_create_table_from_file_use_case()

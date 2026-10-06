@@ -146,7 +146,7 @@ Aunque la instalacion no expone muchos parametros propios, estos son los mas rel
 
 ## Documentación bilingüe
 
-Ejecuta `poetry run python scripts/build_docs.py` para generar ambos idiomas y Libdoc.
+Ejecuta `poetry run python docs/scripts/build_docs.py` para generar ambos idiomas y Libdoc.
 Después sirve `site/` con `python -m http.server 8000 --directory site`. Las fuentes
 están en `docs/en/` y `docs/es/`; las traducciones de keywords en
 `docs/translations/es/libdoc.json`. La compilación rechaza traducciones faltantes o
