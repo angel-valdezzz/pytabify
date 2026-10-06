@@ -2,7 +2,7 @@
 
 Una `DataTable` contiene filas planas y una lista ordenada de columnas. La lectura de una celda entrega el **valor directamente**, sin un objeto intermedio.
 
-```python
+```python hl_lines="9-12"
 from pytabify import DataTableCreator
 
 table = DataTableCreator.from_records([
@@ -21,7 +21,7 @@ Usa corchetes para nombres con espacios o caracteres especiales y para columnas 
 
 ## Actualizar datos
 
-```python
+```python hl_lines="1-4"
 row["nombre"] = "Andrea"
 row.folio = "F-001"
 assert table[1].folio is None
@@ -32,7 +32,7 @@ Actualizar una columna existente cambia solo esa celda. Agregar una columna la i
 
 ## Recorrer y exportar
 
-```python
+```python hl_lines="1-2 6"
 for row in table:
     print(row.nombre, row.to_dict())
 

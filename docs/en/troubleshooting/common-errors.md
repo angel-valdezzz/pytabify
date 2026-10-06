@@ -16,7 +16,7 @@ Resolvers choose adapters by extension. Use csv, json or xlsx matching the actua
 
 XLSX reading requires the sheet name:
 
-```python title="Valid XLSX read"
+```python title="Valid XLSX read" hl_lines="1"
 datatable = DataTableCreator.from_file("people.xlsx", sheet_name="People")
 ```
 
@@ -30,7 +30,7 @@ Every record must match the first record's columns.
 
 === "Valid"
 
-    ```python title="All rows share the schema"
+    ```python title="All rows share the schema" hl_lines="2-3"
     [
         {"name": "Alice", "age": 30},
         {"age": 25, "name": "Bob"},
@@ -39,7 +39,7 @@ Every record must match the first record's columns.
 
 === "Invalid"
 
-    ```python title="Inconsistent schema"
+    ```python title="Inconsistent schema" hl_lines="3"
     [
         {"name": "Alice", "age": 30},
         {"name": "Bob", "country": "MX"},
@@ -60,7 +60,7 @@ CSV reading returns strings. Use JSON, XLSX or from_records when assertions depe
 
 Reading a nonexistent column by key or attribute fails. Add it through a valid update:
 
-```python title="Expand the schema"
+```python title="Expand the schema" hl_lines="1"
 datatable[0]["country"] = "MX"
 ```
 

@@ -38,7 +38,7 @@ Este ejemplo toma un archivo `JSON`, lo carga en memoria, agrega una columna nue
 
 === "Robot Framework"
 
-    ```robotframework title="quickstart.robot" hl_lines="6 10 11"
+    ```robotframework title="quickstart.robot" hl_lines="6 11-12"
     *** Settings ***
     Library    Pytabify
 

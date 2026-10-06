@@ -31,7 +31,7 @@ El reader de Excel exige `sheet_name`.
 
 **Solucion**  
 
-```python title="Lectura correcta de XLSX"
+```python title="Lectura correcta de XLSX" hl_lines="1"
 datatable = DataTableCreator.from_file("people.xlsx", sheet_name="People")
 ```
 
@@ -56,7 +56,7 @@ Al menos una fila no coincide con el esquema del primer registro.
 
 === "Valido"
 
-    ```python title="Todas las filas comparten schema"
+    ```python title="Todas las filas comparten schema" hl_lines="2-3"
     [
         {"name": "Alice", "age": 30},
         {"age": 25, "name": "Bob"},
@@ -65,7 +65,7 @@ Al menos una fila no coincide con el esquema del primer registro.
 
 === "Invalido"
 
-    ```python title="Schema inconsistente"
+    ```python title="Schema inconsistente" hl_lines="3"
     [
         {"name": "Alice", "age": 30},
         {"name": "Bob", "country": "MX"},
@@ -108,7 +108,7 @@ La columna no existe en el esquema actual.
 **Solucion**  
 Agrega la columna primero con una mutacion valida:
 
-```python title="Expandir el esquema"
+```python title="Expandir el esquema" hl_lines="1"
 datatable[0]["country"] = "MX"
 ```
 

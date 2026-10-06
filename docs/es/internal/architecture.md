@@ -128,7 +128,7 @@ sequenceDiagram
     - Si cambias un formato, revisa resolver, adaptador y al menos un round-trip.
     - Si cambias la API publica, revisa Python, Robot Framework y documentacion.
 
-```python title="Composicion interna real de casos de uso"
+```python title="Composicion interna real de casos de uso" hl_lines="8 12 16"
 from pytabify.adapters.files.resolvers import FileReaderResolver, FileWriterResolver
 from pytabify.application.use_cases.create_data_table_from_file import CreateDataTableFromFile
 from pytabify.application.use_cases.create_data_table_from_records import CreateDataTableFromRecords

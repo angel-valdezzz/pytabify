@@ -87,7 +87,7 @@ Cuando un caso de prueba usa una fila de datos, es útil conservar sus columnas 
 
 === "Python"
 
-    ```python title="Leer, mutar y exportar"
+    ```python title="Leer, mutar y exportar" hl_lines="3-4 6"
     from pytabify import DataTableCreator, DataTableSaver
 
     datatable = DataTableCreator.from_file("people.json")
@@ -98,7 +98,7 @@ Cuando un caso de prueba usa una fila de datos, es útil conservar sus columnas 
 
 === "Robot Framework"
 
-    ```robotframework title="Crear una tabla y guardar a JSON"
+    ```robotframework title="Crear una tabla y guardar a JSON" hl_lines="9-11"
     *** Settings ***
     Library    Pytabify
 

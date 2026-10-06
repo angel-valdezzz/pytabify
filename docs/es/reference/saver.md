@@ -18,7 +18,7 @@ Fachada publica para persistir un `DataTable` en distintos formatos.
 
 ## Guardar el mismo DataTable en varios formatos
 
-```python title="Persistir una misma tabla" hl_lines="9 10 11"
+```python title="Persistir una misma tabla" hl_lines="10-12"
 from pytabify import DataTableCreator, DataTableSaver
 
 datatable = DataTableCreator.from_records(
@@ -83,7 +83,7 @@ DataTableSaver.into_xlsx(datatable, "people.xlsx")
     ```
 
 ??? info "Ejemplo secundario"
-    ```python title="Convertir JSON a XLSX" hl_lines="1 2"
+    ```python title="Convertir JSON a XLSX" hl_lines="1-2"
     datatable = DataTableCreator.from_file("people.json")
     DataTableSaver.into_xlsx(datatable, "people.xlsx")
     ```

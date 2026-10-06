@@ -2,7 +2,7 @@
 
 A DataTable contains flat rows and ordered columns. Reading a cell returns its value directly without an intermediate object.
 
-```python
+```python hl_lines="9-12"
 from pytabify import DataTableCreator
 
 table = DataTableCreator.from_records([
@@ -21,7 +21,7 @@ Use brackets for spaces, special characters and names colliding with row methods
 
 ## Update data
 
-```python
+```python hl_lines="1-4"
 row["nombre"] = "Andrea"
 row.folio = "F-001"
 assert table[1].folio is None
@@ -32,7 +32,7 @@ Updating an existing column changes only that cell. Adding a column expands the 
 
 ## Iterate and export
 
-```python
+```python hl_lines="1-2 6"
 for row in table:
     print(row.nombre, row.to_dict())
 
