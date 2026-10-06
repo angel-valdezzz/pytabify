@@ -1,6 +1,11 @@
 # pytabify
 
 <div class="hero" markdown>
+<div class="project-brand">
+<img class="project-brand-light" src="assets/logo-wordmark.svg" alt="Pytabify">
+<img class="project-brand-dark" src="assets/logo-wordmark-dark.svg" alt="Pytabify">
+</div>
+
 
 Load test data from CSV, JSON and XLSX. Read cells by attribute or key, update the table and save results from Python or Robot Framework.
 
