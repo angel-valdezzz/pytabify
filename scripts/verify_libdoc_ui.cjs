@@ -23,6 +23,12 @@ const { JSDOM, VirtualConsole } = require('jsdom');
       if (errors.length) throw errors[0];
       const document=dom.window.document;
       assert.equal(document.documentElement.lang,lang);
+      const title=document.querySelector('.libdoc-title');
+      assert.equal(title.querySelector('h1').textContent,'Pytabify');
+      const brand=title.querySelector('.libdoc-brand-mark');
+      assert(brand && brand.src.startsWith('data:image/svg+xml;base64,'));
+      assert(Number(dom.window.getComputedStyle(title).zIndex)>1,
+        'Libdoc branding must appear above the palette background');
       const theme=document.querySelector('#libdoc-theme-toggle');
       assert(theme, 'Visible Libdoc theme control');
       assert.equal(document.documentElement.getAttribute('data-theme'),'light');
