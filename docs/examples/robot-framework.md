@@ -7,7 +7,7 @@
 
 ## Configuracion minima
 
-```robotframework title="Importar la libreria"
+```robotframework title="Importar la libreria" hl_lines="2"
 *** Settings ***
 Library    Pytabify
 ```
