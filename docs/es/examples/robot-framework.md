@@ -7,14 +7,14 @@
 
 ## Configuracion minima
 
-```robotframework title="Importar la libreria"
+```robotframework title="Importar la libreria" hl_lines="2"
 *** Settings ***
 Library    Pytabify
 ```
 
 ## Crear una tabla desde registros
 
-```robotframework title="RobotDataTable desde memoria"
+```robotframework title="RobotDataTable desde memoria" hl_lines="6-8"
 *** Test Cases ***
 Crear tabla desde registros
     ${records}=    Create List
@@ -27,7 +27,7 @@ Crear tabla desde registros
 
 ## Leer una fila con acceso dual
 
-```robotframework title="Acceso por atributo y por llave"
+```robotframework title="Acceso por atributo y por llave" hl_lines="6-8"
 *** Test Cases ***
 Inspeccionar fila
     ${records}=    Create List
@@ -40,7 +40,7 @@ Inspeccionar fila
 
 ## Mutar y guardar la tabla
 
-```robotframework title="Agregar columna y persistir a JSON"
+```robotframework title="Agregar columna y persistir a JSON" hl_lines="7-8"
 *** Test Cases ***
 Mutar tabla y guardar
     ${records}=    Create List
@@ -66,7 +66,7 @@ Mutar tabla y guardar
     El wrapper acepta tanto `RobotDataTable` como `DataTable` nativo en varias operaciones, lo que simplifica flujos mixtos entre Python y Robot.
 
 ??? info "Lectura desde archivo JSON"
-    ```robotframework title="Crear una tabla desde archivo"
+    ```robotframework title="Crear una tabla desde archivo" hl_lines="1-2"
     ${table}=    Pytabify.Create Data Table From File    people.json
     ${headers}=    Pytabify.Get Data Table Headers    ${table}
     ```

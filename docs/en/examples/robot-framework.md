@@ -7,14 +7,14 @@
 
 ## Minimal configuration
 
-```robotframework title="Import the library"
+```robotframework title="Import the library" hl_lines="2"
 *** Settings ***
 Library    Pytabify
 ```
 
 ## Create a table from records
 
-```robotframework title="In-memory RobotDataTable"
+```robotframework title="In-memory RobotDataTable" hl_lines="6-8"
 *** Test Cases ***
 Crear tabla desde registros
     ${records}=    Create List
@@ -27,7 +27,7 @@ Crear tabla desde registros
 
 ## Read a row by attribute or key
 
-```robotframework title="Attribute and key access"
+```robotframework title="Attribute and key access" hl_lines="6-8"
 *** Test Cases ***
 Inspeccionar fila
     ${records}=    Create List
@@ -40,7 +40,7 @@ Inspeccionar fila
 
 ## Update and save the table
 
-```robotframework title="Add a column and save JSON"
+```robotframework title="Add a column and save JSON" hl_lines="7-8"
 *** Test Cases ***
 Mutar tabla y guardar
     ${records}=    Create List
@@ -67,7 +67,7 @@ Mutar tabla y guardar
 
 ??? info "Read a JSON file"
 
-    ```robotframework title="Create a table from a file"
+    ```robotframework title="Create a table from a file" hl_lines="1-2"
     ${table}=    Pytabify.Create Data Table From File    people.json
     ${headers}=    Pytabify.Get Data Table Headers    ${table}
     ```

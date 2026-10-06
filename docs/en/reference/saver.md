@@ -14,7 +14,7 @@ Public facade for saving a native DataTable in supported formats.
 
 ## Save one table in multiple formats
 
-```python title="Save one table" hl_lines="9 10 11"
+```python title="Save one table" hl_lines="10-12"
 from pytabify import DataTableCreator, DataTableSaver
 
 datatable = DataTableCreator.from_records(
@@ -80,7 +80,7 @@ DataTableSaver.into_xlsx(datatable, "people.xlsx")
 
 ??? info "Convert JSON to XLSX"
 
-    ```python title="Convert JSON to XLSX" hl_lines="1 2"
+    ```python title="Convert JSON to XLSX" hl_lines="1-2"
     datatable = DataTableCreator.from_file("people.json")
     DataTableSaver.into_xlsx(datatable, "people.xlsx")
     ```

@@ -58,7 +58,7 @@ Fachada publica para construir un `DataTable` desde archivo o desde registros en
 
 === "Valido"
 
-    ```python title="Lecturas correctas" hl_lines="3"
+    ```python title="Lecturas correctas" hl_lines="1-3"
     DataTableCreator.from_file("people.json")
     DataTableCreator.from_file("people.csv", encoding="utf-8")
     DataTableCreator.from_file("people.xlsx", sheet_name="People")
@@ -66,13 +66,13 @@ Fachada publica para construir un `DataTable` desde archivo o desde registros en
 
 === "Invalido"
 
-    ```python title="Combinaciones que fallan"
+    ```python title="Combinaciones que fallan" hl_lines="1-2"
     DataTableCreator.from_file("people.xlsx")
     DataTableCreator.from_file("people.txt")
     ```
 
 ??? info "Lectura de XLSX"
-    ```python title="Cargar una hoja especifica"
+    ```python title="Cargar una hoja especifica" hl_lines="1"
     datatable = DataTableCreator.from_file("people.xlsx", sheet_name="People")
     ```
 
@@ -118,7 +118,7 @@ datatable = DataTableCreator.from_records(
 
 === "Valido"
 
-    ```python title="Esquema consistente"
+    ```python title="Esquema consistente" hl_lines="2-3"
     [
         {"name": "Alice", "age": 30},
         {"age": 25, "name": "Bob"},
@@ -127,7 +127,7 @@ datatable = DataTableCreator.from_records(
 
 === "Invalido"
 
-    ```python title="Esquema no rectangular"
+    ```python title="Esquema no rectangular" hl_lines="3"
     [
         {"name": "Alice", "age": 30},
         {"name": "Bob", "country": "MX"},
@@ -149,7 +149,7 @@ datatable = DataTableCreator.from_records(
 
 === "Cargar un origen y seguir procesando"
 
-    ```python title="Usar la tabla en memoria" hl_lines="1 2 3"
+    ```python title="Usar la tabla en memoria" hl_lines="1-3"
     datatable = DataTableCreator.from_file("people.json")
     first_row = datatable[0].to_dict()
     headers = datatable.column_names

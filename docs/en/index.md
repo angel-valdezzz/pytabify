@@ -63,7 +63,7 @@ One API handles reading different formats, keeping column order, updating rows c
 
 === "Python"
 
-    ```python title="Leer, mutar y exportar"
+    ```python title="Leer, mutar y exportar" hl_lines="3-4 6"
     from pytabify import DataTableCreator, DataTableSaver
 
     datatable = DataTableCreator.from_file("people.json")
@@ -74,7 +74,7 @@ One API handles reading different formats, keeping column order, updating rows c
 
 === "Robot Framework"
 
-    ```robotframework title="Crear una tabla y guardar a JSON"
+    ```robotframework title="Crear una tabla y guardar a JSON" hl_lines="9-11"
     *** Settings ***
     Library    Pytabify
 

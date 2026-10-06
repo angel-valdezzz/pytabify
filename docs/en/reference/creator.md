@@ -41,7 +41,7 @@ Public facade for creating tables from files or records.
 
 === "Valid"
 
-    ```python title="Valid reads" hl_lines="3"
+    ```python title="Valid reads" hl_lines="1-3"
     DataTableCreator.from_file("people.json")
     DataTableCreator.from_file("people.csv", encoding="utf-8")
     DataTableCreator.from_file("people.xlsx", sheet_name="People")
@@ -49,14 +49,14 @@ Public facade for creating tables from files or records.
 
 === "Invalid"
 
-    ```python title="Invalid combinations"
+    ```python title="Invalid combinations" hl_lines="1-2"
     DataTableCreator.from_file("people.xlsx")
     DataTableCreator.from_file("people.txt")
     ```
 
 ??? info "Specific XLSX sheet"
 
-    ```python title="Load a specific sheet"
+    ```python title="Load a specific sheet" hl_lines="1"
     datatable = DataTableCreator.from_file("people.xlsx", sheet_name="People")
     ```
 
@@ -77,7 +77,7 @@ Records must be dictionaries sharing the same tabular schema. Column order follo
 
 === "Valid"
 
-    ```python title="Consistent schema"
+    ```python title="Consistent schema" hl_lines="2-3"
     [
         {"name": "Alice", "age": 30},
         {"age": 25, "name": "Bob"},
@@ -86,7 +86,7 @@ Records must be dictionaries sharing the same tabular schema. Column order follo
 
 === "Invalid"
 
-    ```python title="Non-rectangular schema"
+    ```python title="Non-rectangular schema" hl_lines="3"
     [
         {"name": "Alice", "age": 30},
         {"name": "Bob", "country": "MX"},
@@ -108,7 +108,7 @@ Records must be dictionaries sharing the same tabular schema. Column order follo
 
 === "Load and process"
 
-    ```python title="Use the in-memory table" hl_lines="1 2 3"
+    ```python title="Use the in-memory table" hl_lines="1-3"
     datatable = DataTableCreator.from_file("people.json")
     first_row = datatable[0].to_dict()
     headers = datatable.column_names

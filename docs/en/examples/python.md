@@ -7,7 +7,7 @@ These workflows are covered by the project's tests.
 
 ## Convert JSON to CSV
 
-```python title="Simple file round-trip"
+```python title="Simple file round-trip" hl_lines="3-4"
 from pytabify import DataTableCreator, DataTableSaver
 
 datatable = DataTableCreator.from_file("people.json")
@@ -19,7 +19,7 @@ DataTableSaver.into_csv(datatable, "people.csv")
 
 ## Load XLSX and save JSON
 
-```python title="XLSX -> JSON"
+```python title="XLSX -> JSON" hl_lines="3-4"
 from pytabify import DataTableCreator, DataTableSaver
 
 datatable = DataTableCreator.from_file("people.xlsx", sheet_name="People")
@@ -31,7 +31,7 @@ DataTableSaver.into_json(datatable, "people.json")
 
 ## Enrich records before saving
 
-```python title="Expand schema and export"
+```python title="Expand schema and export" hl_lines="10 12"
 from pytabify import DataTableCreator, DataTableSaver
 
 datatable = DataTableCreator.from_records(
@@ -48,7 +48,7 @@ DataTableSaver.into_json(datatable, "people-enriched.json")
 
 === "Before"
 
-    ```python title="Initial records"
+    ```python title="Initial records" hl_lines="2-3"
     [
         {"name": "Alice", "age": 30},
         {"name": "Bob", "age": 25},
@@ -57,7 +57,7 @@ DataTableSaver.into_json(datatable, "people-enriched.json")
 
 === "After"
 
-    ```python title="Serialized output"
+    ```python title="Serialized output" hl_lines="2-3"
     [
         {"name": "Alice", "age": 30, "country": "MX"},
         {"name": "Bob", "age": 25, "country": None},
@@ -66,7 +66,7 @@ DataTableSaver.into_json(datatable, "people-enriched.json")
 
 ## Use in tests
 
-```python title="Fixtures and assertions"
+```python title="Fixtures and assertions" hl_lines="10-11"
 from pytabify import DataTableCreator
 
 datatable = DataTableCreator.from_records(

@@ -97,7 +97,7 @@ PyTabifyLibrary reuses the same use cases and wraps native tables in RobotDataTa
 
 For tabular contract changes, review domain tests and public examples. For format changes, review resolver, adapter and a round-trip. For public API changes, review Python, Robot and documentation.
 
-```python title="Actual use case composition"
+```python title="Actual use case composition" hl_lines="8 12 16"
 from pytabify.adapters.files.resolvers import FileReaderResolver, FileWriterResolver
 from pytabify.application.use_cases.create_data_table_from_file import CreateDataTableFromFile
 from pytabify.application.use_cases.create_data_table_from_records import CreateDataTableFromRecords
