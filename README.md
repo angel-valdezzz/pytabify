@@ -9,7 +9,7 @@
 
 **English** · [Español](README.es.md)
 
-[User guide](https://angel-valdezzz.github.io/pytabify/) · [Keyword reference](https://angel-valdezzz.github.io/pytabify/keywords/) · [PyPI](https://pypi.org/project/pytabify/) · [Visual examples](https://angel-valdezzz.github.io/pytabify/examples/visual/)
+[User guide ↗](https://angel-valdezzz.github.io/pytabify/) · [Keyword reference ↗](https://angel-valdezzz.github.io/pytabify/keywords/) · [PyPI ↗](https://pypi.org/project/pytabify/) · [Visual examples ↗](https://angel-valdezzz.github.io/pytabify/examples/visual/)
 
 
 [![PyPI](https://img.shields.io/pypi/v/pytabify?logo=pypi)](https://pypi.org/project/pytabify/)
@@ -79,7 +79,7 @@ Updates change memory only. Saving requires an explicit saver call. If a test fa
 
 ## Examples
 
-See the [Python API reference](https://angel-valdezzz.github.io/pytabify/reference/creator/), [Robot examples](https://angel-valdezzz.github.io/pytabify/examples/robot-framework/) and visual before/after table example.
+See the [Python API reference ↗](https://angel-valdezzz.github.io/pytabify/reference/creator/), [Robot examples ↗](https://angel-valdezzz.github.io/pytabify/examples/robot-framework/) and visual before/after table example.
 
 ## Development and contribution
 
