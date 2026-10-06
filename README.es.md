@@ -9,7 +9,7 @@
 
 [English](README.md) · **Español**
 
-[Manual de usuario](https://angel-valdezzz.github.io/pytabify/es/) · [Referencia de keywords](https://angel-valdezzz.github.io/pytabify/es/keywords/) · [PyPI](https://pypi.org/project/pytabify/) · [Ejemplos visuales](https://angel-valdezzz.github.io/pytabify/es/examples/visual/)
+[Manual de usuario ↗](https://angel-valdezzz.github.io/pytabify/es/) · [Referencia de keywords ↗](https://angel-valdezzz.github.io/pytabify/es/keywords/) · [PyPI ↗](https://pypi.org/project/pytabify/) · [Ejemplos visuales ↗](https://angel-valdezzz.github.io/pytabify/es/examples/visual/)
 
 
 [![PyPI](https://img.shields.io/pypi/v/pytabify?logo=pypi)](https://pypi.org/project/pytabify/)
@@ -79,7 +79,7 @@ Actualizar cambia solo la memoria. Guardar exige una llamada explícita. Si una 
 
 ## Ejemplos
 
-Consulta la [referencia de API Python](https://angel-valdezzz.github.io/pytabify/es/reference/creator/), los [ejemplos Robot](https://angel-valdezzz.github.io/pytabify/es/examples/robot-framework/) y el ejemplo visual de tabla antes/después.
+Consulta la [referencia de API Python ↗](https://angel-valdezzz.github.io/pytabify/es/reference/creator/), los [ejemplos Robot ↗](https://angel-valdezzz.github.io/pytabify/es/examples/robot-framework/) y el ejemplo visual de tabla antes/después.
 
 ## Desarrollo y contribución
 
