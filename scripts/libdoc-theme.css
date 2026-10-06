@@ -72,7 +72,7 @@
 :root[data-theme="dark"] { --brand-link:#70e3bd; --page-background:#111b2a; --background-color:#192638; --text-color:#eef3fa; --border-color:#35465f; --light-background-color:#23344b; --code-background-color:#121e30; --link-color:var(--brand-link); --muted-text-color:#b6c5d8; --less-important-text-color:#b6c5d8; --arg-kind-color:#b6c5d8; --hover-tint:#23344b; }
 body {background:var(--page-background);}
 body::before {content:"";position:fixed;inset:0 0 auto;height:54px;background:linear-gradient(115deg,var(--brand-primary),var(--brand-secondary));z-index:1;}
-.libdoc-title {background:transparent;color:white;gap:10px;height:38px;max-width:calc(100% - 330px);}
+.libdoc-title {background:transparent;color:white;gap:10px;height:38px;max-width:calc(100% - 330px);z-index:2;}
 .libdoc-title h1 {font-size:1.4rem;color:white;}
 html.scrolled .libdoc-title {max-width:calc(100% - 330px);}
 .libdoc-brand-mark {width:34px;height:34px;flex:none;padding:3px;background:white;border-radius:9px;box-sizing:border-box;}
