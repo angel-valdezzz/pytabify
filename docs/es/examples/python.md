@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # Ejemplos en Python
 
 Estos flujos reflejan escenarios ya cubiertos por las pruebas del proyecto.

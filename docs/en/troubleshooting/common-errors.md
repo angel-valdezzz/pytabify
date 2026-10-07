@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # Common errors
 
 ## Invalid CSV headers or rows

@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # DataTableCreator
 
 Public facade for creating tables from files or records.

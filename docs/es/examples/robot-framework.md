@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # Ejemplos en Robot Framework
 
 `pytabify` expone un wrapper oficial para Robot Framework mediante `PyTabifyLibrary`.

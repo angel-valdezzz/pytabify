@@ -1,19 +1,10 @@
-# pytabify
+---
+template: home.html
+title: Pytabify
+description: Load, read, update and save test data through one clear contract. From files to accessible rows, in Python and Robot Framework.
+---
 
-<div class="hero" markdown>
-<div class="project-brand">
-<img class="project-brand-light" src="assets/logo-wordmark.svg" alt="Pytabify">
-<img class="project-brand-dark" src="assets/logo-wordmark-dark.svg" alt="Pytabify">
-</div>
-
-
-Load test data from CSV, JSON and XLSX. Read cells by attribute or key, update the table and save results from Python or Robot Framework.
-
-[Installation](getting-started/installation.md){ .md-button .md-button--primary }
-[Quick start](getting-started/quickstart.md){ .md-button }
-[Reference](reference/creator.md){ .md-button }
-
-</div>
+<div id="overview"></div>
 
 <div class="grid cards" markdown>
 

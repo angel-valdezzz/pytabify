@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # Inicio rapido
 
 Este recorrido cubre el flujo minimo completo: cargar datos, inspeccionar filas, mutar el esquema y guardar en otro formato.

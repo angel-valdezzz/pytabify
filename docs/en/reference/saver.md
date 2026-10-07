@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # DataTableSaver
 
 Public facade for saving a native DataTable in supported formats.

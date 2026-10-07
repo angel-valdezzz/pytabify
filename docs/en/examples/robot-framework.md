@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # Robot Framework examples
 
 `pytabify` provides its official Robot Framework wrapper, `PyTabifyLibrary`.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # Installation
 
 Choose the installation route for your use. This page covers prerequisites, minimal steps, verification and common errors.

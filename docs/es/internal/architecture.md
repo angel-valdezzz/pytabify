@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # Arquitectura
 
 !!! info "Solo si vas a extender la libreria"

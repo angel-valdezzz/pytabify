@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # Ejemplos visuales
 
 Este ejemplo muestra la misma transformación en memoria del uso rápido. Una columna nueva se incorpora a todas las filas; solo la fila seleccionada recibe su valor.

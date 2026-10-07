@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # Errores comunes
 
 Esta pagina concentra las fallas mas probables al usar `pytabify` y la forma rapida de resolverlas.

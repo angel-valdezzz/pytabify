@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # DataTableCreator
 
 Fachada publica para construir un `DataTable` desde archivo o desde registros en memoria.

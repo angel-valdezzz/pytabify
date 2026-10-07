@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # Extending formats
 
 New formats must preserve the separation between domain, use cases and adapters.

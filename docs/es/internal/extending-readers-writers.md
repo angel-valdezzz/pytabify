@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # Extender formatos
 
 Si agregas un nuevo formato, el cambio debe respetar la separacion actual entre dominio, casos de uso y adaptadores.

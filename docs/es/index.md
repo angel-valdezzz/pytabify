@@ -1,19 +1,10 @@
-# pytabify
+---
+template: home.html
+title: Pytabify
+description: Carga, consulta, actualiza y guarda datos de prueba con un contrato claro. De archivos a filas accesibles, en Python y Robot Framework.
+---
 
-<div class="hero" markdown>
-<div class="project-brand">
-<img class="project-brand-light" src="assets/logo-wordmark.svg" alt="Pytabify">
-<img class="project-brand-dark" src="assets/logo-wordmark-dark.svg" alt="Pytabify">
-</div>
-
-
-Carga datos de prueba desde `CSV`, `JSON` y `XLSX`. Consulta cada celda por atributo o por nombre, actualiza la tabla y guarda el resultado desde Python o Robot Framework.
-
-[Instalacion](getting-started/installation.md){ .md-button .md-button--primary }
-[Inicio rapido](getting-started/quickstart.md){ .md-button }
-[Referencia](reference/creator.md){ .md-button }
-
-</div>
+<div id="overview"></div>
 
 <div class="grid cards" markdown>
 
