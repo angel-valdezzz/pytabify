@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # Instalacion
 
 Instala `pytabify` con el camino que corresponda a tu uso. Esta pagina cubre prerequisitos, pasos minimos, verificacion y errores frecuentes.

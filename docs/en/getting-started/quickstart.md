@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # Quick start
 
 Follow the complete minimal flow: load data, inspect rows, update the schema and save another format.

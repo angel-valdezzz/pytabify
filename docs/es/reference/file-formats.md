@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # Formatos soportados
 
 `pytabify` resuelve un problema muy concreto: mover datos tabulares entre memoria y archivos con un contrato estable.

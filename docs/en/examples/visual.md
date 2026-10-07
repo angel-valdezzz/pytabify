@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # Visual examples
 
 This example shows the same in-memory transformation as the quick start. A new column is added to every row; only the selected row receives its value.

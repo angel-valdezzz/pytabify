@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # DataTableSaver
 
 Fachada publica para persistir un `DataTable` en distintos formatos.

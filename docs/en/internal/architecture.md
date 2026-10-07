@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # Architecture
 
 !!! info "For maintainers"

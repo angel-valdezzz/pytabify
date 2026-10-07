@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # Python examples
 
 These workflows are covered by the project's tests.

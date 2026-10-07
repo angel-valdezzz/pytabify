@@ -1,3 +1,8 @@
+---
+tags:
+  - Uso
+---
+
 # DataTable y filas
 
 Una `DataTable` contiene filas planas y una lista ordenada de columnas. La lectura de una celda entrega el **valor directamente**, sin un objeto intermedio.

@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+{% block tabs %}
+{{ super() }}
+{% set es = config.theme.language == 'es' %}
+<section class="er-hero" aria-labelledby="er-headline" data-er-hero data-lang="{{ config.theme.language }}" data-accent="142,228,205" data-secondary="148,187,255" style="--scene-accent:#8ee4cd;--scene-secondary:#94bbff">
+  <canvas class="er-field" aria-hidden="true"></canvas>
+  <div class="er-hero-inner">
+    <div class="er-hero-copy">
+      <div class="er-kicker">PYTHON <span> / </span> ROBOT FRAMEWORK</div>
+      <h1 id="er-headline">{{ 'Muchos formatos.<br><em>Una tabla.</em>' if es else 'Many formats.<br><em>One table.</em>' }}</h1>
+      <p>{{ 'Carga, consulta, actualiza y guarda datos de prueba con un contrato claro. De archivos a filas accesibles, en Python y Robot Framework.' if es else 'Load, read, update and save test data through one clear contract. From files to accessible rows, in Python and Robot Framework.' }}</p>
+      <div class="er-actions">
+        <a class="er-action er-action-primary" href="{{ 'getting-started/quickstart/' | url }}">{{ 'Comenzar' if es else 'Get started' }} <span aria-hidden="true">→</span></a>
+        <a class="er-action er-action-secondary" href="{{ 'examples/visual/' | url }}">{{ 'Explorar el ejemplo' if es else 'Explore the example' }} <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="er-facts"><span>CSV · JSON · XLSX</span><span>{{ 'Abierto y gratuito' if es else 'Open source & free' }}</span></div>
+    </div>
+    <div class="er-report-scene" aria-label="{{ 'Animación ilustrativa con datos ficticios' if es else 'Illustrative animation with fictitious data' }}">
+      <div class="er-scene-caption"><span class="er-live-dot"></span>{{ 'DE LOS DATOS AL RESULTADO' if es else 'FROM INPUT TO INSIGHT' }}</div>
+      <div class="er-preview">
+        <div class="er-scene-title"><img src="{{ 'assets/logo.svg' | url }}" alt=""><strong>Pytabify</strong></div>
+        <div class="er-preview-body"><div class="er-scene-row er-assemble" data-stage="1"><strong>CSV · JSON · XLSX</strong><table class="er-data-table"><tr><th>id</th><th>name</th><th>active</th></tr><tr><td>1042</td><td>Ana</td><td>true</td></tr><tr><td>1087</td><td>Leo</td><td>false</td></tr></table></div>
+<div class="er-scene-row er-assemble" data-stage="2"><strong>DataTable</strong><br><code>table[0].name → <span class="er-value">"Ana"</span></code></div>
+<div class="er-scene-row er-assemble" data-stage="3"><code>table[0]["active"] = <span class="er-value">False</span></code><br><span class="er-muted">{{ 'Read · update · reuse' if not es else 'Lee · actualiza · reutiliza' }}</span></div>
+<div class="er-scene-row er-assemble" data-stage="4"><strong>CSV ↔ JSON ↔ XLSX</strong><br><span class="er-value">✓</span> {{ 'Save through the same contract' if not es else 'Guarda con el mismo contrato' }}</div></div>
+      </div>
+      <div class="er-scene-footer"><span>{{ 'Ilustración · datos ficticios' if es else 'Illustration · fictitious data' }}</span><div class="er-animation-controls" hidden><button type="button" data-er-pause aria-pressed="false">{{ 'Pausar' if es else 'Pause' }}</button><button type="button" data-er-replay>{{ 'Repetir' if es else 'Replay' }}</button></div></div>
+    </div>
+  </div>
+  <a class="er-scroll" href="#overview">{{ 'Descubre lo que puedes crear' if es else 'Discover what you can create' }} <span aria-hidden="true">↓</span></a>
+</section>
+{% endblock %}
+{% block content %}<div class="er-home-content">{{ page.content }}</div>{% endblock %}

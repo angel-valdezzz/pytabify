@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # Supported formats
 
 pytabify moves tabular data between memory and files using one stable contract.

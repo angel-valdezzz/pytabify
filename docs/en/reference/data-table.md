@@ -1,3 +1,8 @@
+---
+tags:
+  - Usage
+---
+
 # DataTable and rows
 
 A DataTable contains flat rows and ordered columns. Reading a cell returns its value directly without an intermediate object.
