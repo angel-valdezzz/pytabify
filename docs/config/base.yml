@@ -92,12 +92,14 @@ extra_css:
   - assets/stylesheets/visual.css
 
 extra_javascript:
+  - assets/navigation.js?v=locale-3
   - assets/mermaid.min.js
   - assets/landing.js
   - assets/keyword-links.js
   - assets/javascripts/mermaid.js
 
 extra:
+  scope: /pytabify/
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/angel-valdezzz/pytabify
@@ -113,3 +115,6 @@ extra:
     - name: Español
       link: https://angel-valdezzz.github.io/pytabify/es/
       lang: es
+
+hooks:
+  - docs/scripts/navigation.py

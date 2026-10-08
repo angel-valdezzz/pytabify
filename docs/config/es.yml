@@ -58,3 +58,6 @@ nav:
       - Arquitectura: internal/architecture.md
       - Extender formatos: internal/extending-readers-writers.md
   - Ejemplos visuales: examples/visual.md
+
+hooks:
+  - ../scripts/navigation.py
