@@ -45,6 +45,8 @@ def check_example(page: Page, lang: str) -> None:
         assert "Alice" in table.inner_text() and "Bob" in table.inner_text()
         if columns == 3:
             assert "MX" in table.inner_text() and "None" in table.inner_text()
+    # Let Material's active-label transition settle before the visual capture.
+    page.wait_for_timeout(500)
     page.screenshot(path=str(ROOT / "build/landing-checks" / f"{lang}-real-data.png"))
     page.evaluate("scrollTo(0, 0)")
 
