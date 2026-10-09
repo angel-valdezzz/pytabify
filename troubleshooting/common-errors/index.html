@@ -51,13 +51,13 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/landing.css">
-    
       <link rel="stylesheet" href="../../assets/stylesheets/standard.css">
     
       <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
       <link rel="stylesheet" href="../../assets/stylesheets/visual.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/landing.css?v=mosaic-1">
     
     <script>__md_scope=new URL("/pytabify/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -115,7 +115,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Pytabify" class="md-header__button md-logo" aria-label="Pytabify" data-md-component="logo">
       
-  <img src="../../assets/logo.svg" alt="logo">
+  <img src="../../assets/logo-dark.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -137,6 +137,11 @@
           </span>
         </div>
       </div>
+    </div>
+    <div class="er-home-nav" aria-label="Main links">
+      <a href="../../getting-started/installation/">Guide</a>
+      <a href="../../keywords/index.html" target="_blank" rel="noopener noreferrer">Reference</a>
+      <a href="https://github.com/angel-valdezzz/pytabify" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
     
       
@@ -201,7 +206,7 @@
     
       
       
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon er-search-trigger" for="__search" aria-label="Search" tabindex="0" role="button">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         </label>
@@ -430,7 +435,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Pytabify" class="md-nav__button md-logo" aria-label="Pytabify" data-md-component="logo">
       
-  <img src="../../assets/logo.svg" alt="logo">
+  <img src="../../assets/logo-dark.svg" alt="logo">
 
     </a>
     Pytabify
@@ -1440,7 +1445,7 @@
 <p>Reading a nonexistent column by key or attribute fails. Add it through a valid update:</p>
 <div class="highlight"><span class="filename">Expand the schema</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="hll"><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MX&quot;</span>
 </span></code></pre></div>
-<p>Adding a column in one row propagates it to other rows with None. This is the supported way to enrich an existing table.</p><span hidden data-doc-alternates>[{&quot;name&quot;: &quot;English&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;link&quot;: &quot;/pytabify/troubleshooting/common-errors/&quot;, &quot;fragments&quot;: {&quot;common-errors&quot;: &quot;common-errors&quot;, &quot;invalid-csv-headers-or-rows&quot;: &quot;invalid-csv-headers-or-rows&quot;, &quot;an-identifier-was-lost-after-a-failed-test&quot;: &quot;an-identifier-was-lost-after-a-failed-test&quot;, &quot;unsupported-extension&quot;: &quot;unsupported-extension&quot;, &quot;missing-sheet_name&quot;: &quot;missing-sheet_name&quot;, &quot;missing-xlsx-sheet&quot;: &quot;missing-xlsx-sheet&quot;, &quot;non-rectangular-records&quot;: &quot;non-rectangular-records&quot;, &quot;missing-path&quot;: &quot;missing-path&quot;, &quot;csv-type-differences&quot;: &quot;csv-type-differences&quot;, &quot;missing-column&quot;: &quot;missing-column&quot;}, &quot;current&quot;: true}, {&quot;name&quot;: &quot;Espa\u00f1ol&quot;, &quot;lang&quot;: &quot;es&quot;, &quot;link&quot;: &quot;/pytabify/es/troubleshooting/common-errors/&quot;, &quot;fragments&quot;: {&quot;common-errors&quot;: &quot;errores-comunes&quot;, &quot;invalid-csv-headers-or-rows&quot;: &quot;csv-con-encabezados-o-filas-invalidas&quot;, &quot;an-identifier-was-lost-after-a-failed-test&quot;: &quot;se-perdio-un-folio-despues-de-fallar-una-prueba&quot;, &quot;unsupported-extension&quot;: &quot;extension-no-soportada&quot;, &quot;missing-sheet_name&quot;: &quot;sheet_name-faltante-en-xlsx&quot;, &quot;missing-xlsx-sheet&quot;: &quot;hoja-inexistente-en-xlsx&quot;, &quot;non-rectangular-records&quot;: &quot;datos-no-rectangulares-en-from_records&quot;, &quot;missing-path&quot;: &quot;ruta-inexistente&quot;, &quot;csv-type-differences&quot;: &quot;diferencia-de-tipos-al-leer-csv&quot;, &quot;missing-column&quot;: &quot;acceso-a-columna-inexistente&quot;}, &quot;current&quot;: false}]</span>
+<p>Adding a column in one row propagates it to other rows with None. This is the supported way to enrich an existing table.</p><span hidden data-search-exclude data-doc-alternates>[{&quot;name&quot;: &quot;English&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;link&quot;: &quot;/pytabify/troubleshooting/common-errors/&quot;, &quot;fragments&quot;: {&quot;common-errors&quot;: &quot;common-errors&quot;, &quot;invalid-csv-headers-or-rows&quot;: &quot;invalid-csv-headers-or-rows&quot;, &quot;an-identifier-was-lost-after-a-failed-test&quot;: &quot;an-identifier-was-lost-after-a-failed-test&quot;, &quot;unsupported-extension&quot;: &quot;unsupported-extension&quot;, &quot;missing-sheet_name&quot;: &quot;missing-sheet_name&quot;, &quot;missing-xlsx-sheet&quot;: &quot;missing-xlsx-sheet&quot;, &quot;non-rectangular-records&quot;: &quot;non-rectangular-records&quot;, &quot;missing-path&quot;: &quot;missing-path&quot;, &quot;csv-type-differences&quot;: &quot;csv-type-differences&quot;, &quot;missing-column&quot;: &quot;missing-column&quot;}, &quot;current&quot;: true}, {&quot;name&quot;: &quot;Espa\u00f1ol&quot;, &quot;lang&quot;: &quot;es&quot;, &quot;link&quot;: &quot;/pytabify/es/troubleshooting/common-errors/&quot;, &quot;fragments&quot;: {&quot;common-errors&quot;: &quot;errores-comunes&quot;, &quot;invalid-csv-headers-or-rows&quot;: &quot;csv-con-encabezados-o-filas-invalidas&quot;, &quot;an-identifier-was-lost-after-a-failed-test&quot;: &quot;se-perdio-un-folio-despues-de-fallar-una-prueba&quot;, &quot;unsupported-extension&quot;: &quot;extension-no-soportada&quot;, &quot;missing-sheet_name&quot;: &quot;sheet_name-faltante-en-xlsx&quot;, &quot;missing-xlsx-sheet&quot;: &quot;hoja-inexistente-en-xlsx&quot;, &quot;non-rectangular-records&quot;: &quot;datos-no-rectangulares-en-from_records&quot;, &quot;missing-path&quot;: &quot;ruta-inexistente&quot;, &quot;csv-type-differences&quot;: &quot;diferencia-de-tipos-al-leer-csv&quot;, &quot;missing-column&quot;: &quot;acceso-a-columna-inexistente&quot;}, &quot;current&quot;: false}]</span>
 
 
 
@@ -1586,7 +1591,7 @@
       
         <script src="../../assets/mermaid.min.js"></script>
       
-        <script src="../../assets/landing.js"></script>
+        <script src="../../assets/landing.js?v=mosaic-1"></script>
       
         <script src="../../assets/keyword-links.js"></script>
       

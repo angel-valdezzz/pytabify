@@ -1,6 +1,8 @@
 # Pytabify identity
 
 Version 1: rounded geometry, retaining the project's palette.
+Mosaic landing: supplied geometry unchanged; navigation and Libdoc use a lighter
+transparent logo-dark.svg variant. No white tile behind documentation symbols.
 
 - `logo.svg`: transparent symbol, used in navigation and portable reports.
 - `favicon.svg`: compact symbol on a white tile for light/dark browser tabs.

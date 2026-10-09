@@ -49,13 +49,13 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/landing.css">
-    
       <link rel="stylesheet" href="assets/stylesheets/standard.css">
     
       <link rel="stylesheet" href="assets/stylesheets/extra.css">
     
       <link rel="stylesheet" href="assets/stylesheets/visual.css">
+    
+      <link rel="stylesheet" href="assets/stylesheets/landing.css?v=mosaic-1">
     
     <script>__md_scope=new URL("/pytabify/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduccion" class="md-skip">
+        <a href="#la-misma-tabla-una-columna-nueva" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -113,7 +113,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="." title="Pytabify" class="md-header__button md-logo" aria-label="Pytabify" data-md-component="logo">
       
-  <img src="assets/logo.svg" alt="logo">
+  <img src="assets/logo-dark.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -135,6 +135,11 @@
           </span>
         </div>
       </div>
+    </div>
+    <div class="er-home-nav" aria-label="Enlaces principales">
+      <a href="getting-started/installation/">Guía</a>
+      <a href="keywords/index.html" target="_blank" rel="noopener noreferrer">Referencia</a>
+      <a href="https://github.com/angel-valdezzz/pytabify" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
     
       
@@ -199,7 +204,7 @@
     
       
       
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon er-search-trigger" for="__search" aria-label="Buscar" tabindex="0" role="button">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         </label>
@@ -412,32 +417,23 @@
         
       
 
-<section class="er-hero" aria-labelledby="er-headline" data-er-hero data-lang="es" data-accent="142,228,205" data-secondary="148,187,255" style="--scene-accent:#8ee4cd;--scene-secondary:#94bbff">
-  <canvas class="er-field" aria-hidden="true"></canvas>
+
+<section class="er-hero" aria-labelledby="er-headline" data-er-hero data-lang="es">
+  <img class="er-mosaic-art" src="assets/images/landing-mosaic.webp" alt="" aria-hidden="true" fetchpriority="high">
   <div class="er-hero-inner">
     <div class="er-hero-copy">
-      <div class="er-kicker">PYTHON <span> / </span> ROBOT FRAMEWORK</div>
-      <h1 id="er-headline">Muchos formatos.<br><em>Una tabla.</em></h1>
-      <p>Carga, consulta, actualiza y guarda datos de prueba con un contrato claro. De archivos a filas accesibles, en Python y Robot Framework.</p>
+      <h1 id="er-headline"><span>Muchos formatos.</span><em>Una tabla.</em></h1>
+      <p>Lee, actualiza y guarda datos de prueba en CSV, JSON y XLSX.</p>
+      <div class="er-platforms">Python · Robot Framework</div>
       <div class="er-actions">
-        <a class="er-action er-action-primary" href="getting-started/quickstart/">Comenzar <span aria-hidden="true">→</span></a>
-        <a class="er-action er-action-secondary" href="examples/visual/">Explorar el ejemplo <span aria-hidden="true">→</span></a>
+        <a class="er-action er-action-primary" href="getting-started/quickstart/">Comenzar <span class="er-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a>
+        <a class="er-action er-action-secondary" href="#data-preview">Explorar los datos <span class="er-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a>
       </div>
-      <div class="er-facts"><span>CSV · JSON · XLSX</span><span>Abierto y gratuito</span></div>
-    </div>
-    <div class="er-report-scene" aria-label="Animación ilustrativa con datos ficticios">
-      <div class="er-scene-caption"><span class="er-live-dot"></span>DE LOS DATOS AL RESULTADO</div>
-      <div class="er-preview">
-        <div class="er-scene-title"><img src="assets/logo.svg" alt=""><strong>Pytabify</strong></div>
-        <div class="er-preview-body"><div class="er-scene-row er-assemble" data-stage="1"><strong>CSV · JSON · XLSX</strong><table class="er-data-table"><tr><th>id</th><th>name</th><th>active</th></tr><tr><td>1042</td><td>Ana</td><td>true</td></tr><tr><td>1087</td><td>Leo</td><td>false</td></tr></table></div>
-<div class="er-scene-row er-assemble" data-stage="2"><strong>DataTable</strong><br><code>table[0].name → <span class="er-value">"Ana"</span></code></div>
-<div class="er-scene-row er-assemble" data-stage="3"><code>table[0]["active"] = <span class="er-value">False</span></code><br><span class="er-muted">Lee · actualiza · reutiliza</span></div>
-<div class="er-scene-row er-assemble" data-stage="4"><strong>CSV ↔ JSON ↔ XLSX</strong><br><span class="er-value">✓</span> Guarda con el mismo contrato</div></div>
-      </div>
-      <div class="er-scene-footer"><span>Ilustración · datos ficticios</span><div class="er-animation-controls" hidden><button type="button" data-er-pause aria-pressed="false">Pausar</button><button type="button" data-er-replay>Repetir</button></div></div>
+      <div class="er-facts">CSV · JSON · XLSX</div>
     </div>
   </div>
-  <a class="er-scroll" href="#overview">Descubre lo que puedes crear <span aria-hidden="true">↓</span></a>
+  <a class="er-scroll-cue" href="#er-content"><span class="er-scroll-circle"><span class="er-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16z"/></svg></span></span><span>Descubre Pytabify</span></a>
+  <button class="er-motion-toggle" type="button" data-er-pause aria-pressed="false" hidden><span class="er-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 19h4V5h-4M6 19h4V5H6z"/></svg></span><span>Pausar animación</span></button>
 </section>
 
       <main class="md-main" data-md-component="main">
@@ -458,7 +454,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="." title="Pytabify" class="md-nav__button md-logo" aria-label="Pytabify" data-md-component="logo">
       
-  <img src="assets/logo.svg" alt="logo">
+  <img src="assets/logo-dark.svg" alt="logo">
 
     </a>
     Pytabify
@@ -539,6 +535,17 @@
       Tabla de contenidos
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-misma-tabla-una-columna-nueva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La misma tabla. Una columna nueva.
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#introduccion" class="md-nav__link">
@@ -1205,6 +1212,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#la-misma-tabla-una-columna-nueva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La misma tabla. Una columna nueva.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#introduccion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1290,8 +1308,63 @@
 
               
               <article class="md-content__inner md-typeset">
-                <div class="er-home-content"><div id="overview"></div>
+                <div class="er-home-content" id="er-content" tabindex="-1"><div id="overview"></div>
 
+<div class="er-real-data" id="data-preview">
+<h2 id="la-misma-tabla-una-columna-nueva">La misma tabla. Una columna nueva.<a class="headerlink" href="#la-misma-tabla-una-columna-nueva" title="Permanent link">&para;</a></h2>
+<p>El mismo ejemplo del quickstart: al añadir una columna, todas las filas conservan el mismo esquema. Solo Alice recibe el valor MX.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MX&quot;</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Antes</label><label for="__tabbed_1_2">Después</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>age</th>
+<th>country</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>30</td>
+<td>MX</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>25</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>La actualización ocurre en memoria. Guardar requiere una llamada explícita; CSV representa el valor vacío como una celda vacía y JSON como null.</p>
+<p><a href="examples/visual/">Ver el ejemplo completo</a></p>
+</div>
 <div class="grid cards">
 <ul>
 <li>
@@ -1354,29 +1427,29 @@
 <p>Cada columna representa un campo plano. La construcción de objetos de negocio anidados y el registro inmediato de folios generados pertenecen al proyecto que ejecuta las pruebas.</p>
 </div>
 <h2 id="lo-que-puedes-hacer">Lo que puedes hacer<a class="headerlink" href="#lo-que-puedes-hacer" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">Robot Framework</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">Robot Framework</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Leer, mutar y exportar</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a><span class="kn">from</span><span class="w"> </span><span class="nn">pytabify</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataTableCreator</span><span class="p">,</span> <span class="n">DataTableSaver</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos="2 "></span></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="hll"><a href="#__codelineno-0-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">datatable</span> <span class="o">=</span> <span class="n">DataTableCreator</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;people.json&quot;</span><span class="p">)</span>
-</span><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="hll"><a href="#__codelineno-0-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MX&quot;</span>
-</span><a id="__codelineno-0-5" name="__codelineno-0-5"></a><a href="#__codelineno-0-5"><span class="linenos" data-linenos="5 "></span></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="hll"><a href="#__codelineno-0-6"><span class="linenos" data-linenos="6 "></span></a><span class="n">DataTableSaver</span><span class="o">.</span><span class="n">into_csv</span><span class="p">(</span><span class="n">datatable</span><span class="p">,</span> <span class="s2">&quot;people.csv&quot;</span><span class="p">)</span>
+<div class="highlight"><span class="filename">Leer, mutar y exportar</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a><span class="kn">from</span><span class="w"> </span><span class="nn">pytabify</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataTableCreator</span><span class="p">,</span> <span class="n">DataTableSaver</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos="2 "></span></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="hll"><a href="#__codelineno-1-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">datatable</span> <span class="o">=</span> <span class="n">DataTableCreator</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;people.json&quot;</span><span class="p">)</span>
+</span><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="hll"><a href="#__codelineno-1-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MX&quot;</span>
+</span><a id="__codelineno-1-5" name="__codelineno-1-5"></a><a href="#__codelineno-1-5"><span class="linenos" data-linenos="5 "></span></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="hll"><a href="#__codelineno-1-6"><span class="linenos" data-linenos="6 "></span></a><span class="n">DataTableSaver</span><span class="o">.</span><span class="n">into_csv</span><span class="p">(</span><span class="n">datatable</span><span class="p">,</span> <span class="s2">&quot;people.csv&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Crear una tabla y guardar a JSON</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="gh">*** Settings ***</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="kn">Library</span><span class="p">    </span><span class="nn">Pytabify</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><a href="#__codelineno-1-3"><span class="linenos" data-linenos=" 3 "></span></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="gh">*** Test Cases ***</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><a href="#__codelineno-1-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="gu">Guardar tabla enriquecida</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><a href="#__codelineno-1-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="p">    ${</span><span class="nv">records</span><span class="p">}=    </span><span class="nf">Create List</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><a href="#__codelineno-1-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="p">    ...    ${</span><span class="nv">{ {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30</span><span class="p">}</span><span class="s"> }}</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><a href="#__codelineno-1-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">    ...    ${</span><span class="nv">{ {&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 25</span><span class="p">}</span><span class="s"> }}</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="hll"><a href="#__codelineno-1-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="p">    ${</span><span class="nv">table</span><span class="p">}=    </span><span class="nf">Pytabify.Create Data Table From Records</span><span class="p">    ${</span><span class="nv">records</span><span class="p">}</span>
-</span><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="hll"><a href="#__codelineno-1-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">    ${</span><span class="nv">table</span><span class="p">}=    </span><span class="nf">Pytabify.Set Data Table Value</span><span class="p">    ${</span><span class="nv">table</span><span class="p">}    </span><span class="s">0</span><span class="p">    </span><span class="s">country</span><span class="p">    </span><span class="s">MX</span>
-</span><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="hll"><a href="#__codelineno-1-11"><span class="linenos" data-linenos="11 "></span></a><span class="p">    </span><span class="nf">Pytabify.Save Data Table To Json</span><span class="p">    ${</span><span class="nv">table</span><span class="p">}    </span><span class="s">people.json</span>
+<div class="highlight"><span class="filename">Crear una tabla y guardar a JSON</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="gh">*** Settings ***</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="kn">Library</span><span class="p">    </span><span class="nn">Pytabify</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos=" 3 "></span></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="gh">*** Test Cases ***</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="gu">Guardar tabla enriquecida</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><a href="#__codelineno-2-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="p">    ${</span><span class="nv">records</span><span class="p">}=    </span><span class="nf">Create List</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><a href="#__codelineno-2-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="p">    ...    ${</span><span class="nv">{ {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30</span><span class="p">}</span><span class="s"> }}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><a href="#__codelineno-2-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">    ...    ${</span><span class="nv">{ {&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 25</span><span class="p">}</span><span class="s"> }}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="hll"><a href="#__codelineno-2-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="p">    ${</span><span class="nv">table</span><span class="p">}=    </span><span class="nf">Pytabify.Create Data Table From Records</span><span class="p">    ${</span><span class="nv">records</span><span class="p">}</span>
+</span><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="hll"><a href="#__codelineno-2-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">    ${</span><span class="nv">table</span><span class="p">}=    </span><span class="nf">Pytabify.Set Data Table Value</span><span class="p">    ${</span><span class="nv">table</span><span class="p">}    </span><span class="s">0</span><span class="p">    </span><span class="s">country</span><span class="p">    </span><span class="s">MX</span>
+</span><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="hll"><a href="#__codelineno-2-11"><span class="linenos" data-linenos="11 "></span></a><span class="p">    </span><span class="nf">Pytabify.Save Data Table To Json</span><span class="p">    ${</span><span class="nv">table</span><span class="p">}    </span><span class="s">people.json</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -1447,7 +1520,7 @@
 <div class="admonition note">
 <p class="admonition-title">Regla de oro</p>
 <p>Si necesitas preservar <code>int</code>, <code>bool</code> y <code>None</code> durante el round-trip, prefiere <code>JSON</code> o <code>XLSX</code>. <code>CSV</code> es el formato mas interoperable, pero no conserva tipos de la misma forma.</p>
-</div><span hidden data-doc-alternates>[{&quot;name&quot;: &quot;English&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;link&quot;: &quot;/pytabify/&quot;, &quot;fragments&quot;: {}, &quot;current&quot;: false}, {&quot;name&quot;: &quot;Espa\u00f1ol&quot;, &quot;lang&quot;: &quot;es&quot;, &quot;link&quot;: &quot;/pytabify/es/&quot;, &quot;fragments&quot;: {&quot;introduccion&quot;: &quot;introduccion&quot;, &quot;que-problema-resuelve&quot;: &quot;que-problema-resuelve&quot;, &quot;lo-que-puedes-hacer&quot;: &quot;lo-que-puedes-hacer&quot;, &quot;flujo-recomendado&quot;: &quot;flujo-recomendado&quot;, &quot;mapa-rapido&quot;: &quot;mapa-rapido&quot;, &quot;cobertura-de-formatos&quot;: &quot;cobertura-de-formatos&quot;}, &quot;current&quot;: true}]</span></div>
+</div><span hidden data-search-exclude data-doc-alternates>[{&quot;name&quot;: &quot;English&quot;, &quot;lang&quot;: &quot;en&quot;, &quot;link&quot;: &quot;/pytabify/&quot;, &quot;fragments&quot;: {}, &quot;current&quot;: false}, {&quot;name&quot;: &quot;Espa\u00f1ol&quot;, &quot;lang&quot;: &quot;es&quot;, &quot;link&quot;: &quot;/pytabify/es/&quot;, &quot;fragments&quot;: {&quot;la-misma-tabla-una-columna-nueva&quot;: &quot;la-misma-tabla-una-columna-nueva&quot;, &quot;introduccion&quot;: &quot;introduccion&quot;, &quot;que-problema-resuelve&quot;: &quot;que-problema-resuelve&quot;, &quot;lo-que-puedes-hacer&quot;: &quot;lo-que-puedes-hacer&quot;, &quot;flujo-recomendado&quot;: &quot;flujo-recomendado&quot;, &quot;mapa-rapido&quot;: &quot;mapa-rapido&quot;, &quot;cobertura-de-formatos&quot;: &quot;cobertura-de-formatos&quot;}, &quot;current&quot;: true}]</span></div>
               </article>
             </div>
           
@@ -1543,7 +1616,7 @@
       
         <script src="assets/mermaid.min.js"></script>
       
-        <script src="assets/landing.js"></script>
+        <script src="assets/landing.js?v=mosaic-1"></script>
       
         <script src="assets/keyword-links.js"></script>
       
