@@ -6,6 +6,36 @@ description: Carga, consulta, actualiza y guarda datos de prueba con un contrato
 
 <div id="overview"></div>
 
+<div class="er-real-data" id="data-preview" markdown>
+
+## La misma tabla. Una columna nueva.
+
+El mismo ejemplo del quickstart: al añadir una columna, todas las filas conservan el mismo esquema. Solo Alice recibe el valor MX.
+
+```python
+table[0]["country"] = "MX"
+```
+
+=== "Antes"
+
+    | name | age |
+    | --- | --- |
+    | Alice | 30 |
+    | Bob | 25 |
+
+=== "Después"
+
+    | name | age | country |
+    | --- | --- | --- |
+    | Alice | 30 | MX |
+    | Bob | 25 | `None` |
+
+La actualización ocurre en memoria. Guardar requiere una llamada explícita; CSV representa el valor vacío como una celda vacía y JSON como null.
+
+[Ver el ejemplo completo](examples/visual.md)
+
+</div>
+
 <div class="grid cards" markdown>
 
 -   :material-download: __Instala y valida__

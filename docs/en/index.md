@@ -6,6 +6,36 @@ description: Load, read, update and save test data through one clear contract. F
 
 <div id="overview"></div>
 
+<div class="er-real-data" id="data-preview" markdown>
+
+## The same table. One new column.
+
+The same quickstart example: adding a column keeps the schema consistent across every row. Only Alice receives the value MX.
+
+```python
+table[0]["country"] = "MX"
+```
+
+=== "Before"
+
+    | name | age |
+    | --- | --- |
+    | Alice | 30 |
+    | Bob | 25 |
+
+=== "After"
+
+    | name | age | country |
+    | --- | --- | --- |
+    | Alice | 30 | MX |
+    | Bob | 25 | `None` |
+
+The update happens in memory. Saving requires an explicit call; CSV represents the empty value as an empty cell and JSON as null.
+
+[See the complete example](examples/visual.md)
+
+</div>
+
 <div class="grid cards" markdown>
 
 -   :material-download: **Install and verify**
